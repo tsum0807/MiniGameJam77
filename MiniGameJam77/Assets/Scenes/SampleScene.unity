@@ -1490,6 +1490,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1323006753}
     m_Modifications:
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: normalFOV
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: focusedFOV
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: normalViewDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: IgnoreLayers.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: focusedViewDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: IgnoreLayersWithMonster.m_Bits
+      value: 2816
+      objectReference: {fileID: 0}
     - target: {fileID: 6282425559072807390, guid: 3b63caeefd03b54468c1932bf72b7160,
         type: 3}
       propertyPath: m_RootOrder
