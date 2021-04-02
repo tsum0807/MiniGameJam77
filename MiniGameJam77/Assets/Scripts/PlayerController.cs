@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
         // Get mouse position in world space
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         FacePosition(mousePos);
+
+        // Switch flashlight mode
+        if(Input.GetButtonDown("Switch Mode")){
+            fov.SwitchMode();
+        }
     }
 
     private void Move(float h, float v){
@@ -44,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     private void FacePosition(Vector3 mousePos){
         Vector3 lookPos = mousePos - transform.position;
-        float theta = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg +90f;
+        float theta = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg ;
         // Quaternion angle = Quaternion.Euler(new Vector3(0, 0, theta));
         if(theta < 0){
             theta += 360;
