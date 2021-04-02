@@ -1213,36 +1213,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
-        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 85941664}
-    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
-        type: 3}
-      propertyPath: jumpTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
-        type: 3}
-      propertyPath: landingTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
-        type: 3}
-      propertyPath: monsterSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: cd30eb220bac92e47a3972388b1fff5a,
-        type: 3}
-    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
-        type: 3}
-      propertyPath: landingIndicator
-      value: 
-      objectReference: {fileID: 21300000, guid: 3913a4ab3d110f541855cbdfab582f86,
-        type: 3}
     - target: {fileID: 6125404155473924824, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
       propertyPath: m_RootOrder
