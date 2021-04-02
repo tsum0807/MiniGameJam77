@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     
     [SerializeField] private FieldOfView fov;
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed;
 
     private Rigidbody2D rigidBody;
 
