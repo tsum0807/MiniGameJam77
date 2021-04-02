@@ -61,7 +61,6 @@ public class FieldOfView : MonoBehaviour
                 }
                 // cast new ray from monster
                 raycastHit2D = Physics2D.Raycast(raycastHit2D.point, GetVectorFromAngle(curAngle), _viewDistance - raycastHit2D.distance, ~IgnoreLayersWithMonster);
-                // vertex = GetVectorFromAngle(curAngle) * _viewDistance;
             }
 
             if(raycastHit2D.collider == null){

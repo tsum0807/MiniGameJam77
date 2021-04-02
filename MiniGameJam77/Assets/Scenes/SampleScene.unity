@@ -471,7 +471,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1490,6 +1490,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1323006753}
     m_Modifications:
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: normalFOV
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: focusedFOV
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: normalViewDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: IgnoreLayers.m_Bits
+      value: 2304
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: focusedViewDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: IgnoreLayersWithMonster.m_Bits
+      value: 2816
+      objectReference: {fileID: 0}
     - target: {fileID: 6282425559072807390, guid: 3b63caeefd03b54468c1932bf72b7160,
         type: 3}
       propertyPath: m_RootOrder
