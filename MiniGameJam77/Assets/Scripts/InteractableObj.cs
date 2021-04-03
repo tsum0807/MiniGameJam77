@@ -5,6 +5,9 @@ using UnityEngine;
 public class InteractableObj : MonoBehaviour{
 
     [SerializeField] private Sprite[] sprites;
+    [SerializeField] private bool isItem;
+
+    private GameObject player;
 
     enum STATE{
         Normal,
@@ -14,6 +17,7 @@ public class InteractableObj : MonoBehaviour{
     private STATE state;
 
     void Start(){
+        player = GameObject.Find("Player");
         state = STATE.Normal;
     }
 
@@ -23,8 +27,16 @@ public class InteractableObj : MonoBehaviour{
 
     public void Interact(){
         state = STATE.Interacted;
-        // Change sprite if exists
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        // Give item if is an item
+        if (isItem)
+        {
+            player.GetComponent<Inventory>().AddToInventory(gameObject.name);
+            UIManager.UI.InsertInventoryBar(gameObject.name, sr.sprite);
+        }
+
+        // Change sprite if exists
         if(sprites.Length > 1){
             sr.sprite = sprites[1];
         }else{
@@ -34,6 +46,7 @@ public class InteractableObj : MonoBehaviour{
         }
 
         // Disable any hitbox if exists
+        // Mainly for doors
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         if(collider != null){
             collider.enabled = false;

@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    
-    // [SerializeField] private GameObject darkness;
+public class GameManager : MonoBehaviour{
 
     void Start(){
-        // darkness = GameObject.Find("Darkness");
-        
-        // if(darkness)
-        //     darkness.SetActive(true);
+
     }
 
     void Update(){

@@ -17,9 +17,11 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private GameObject darkness;
+    private Inventory inventory;
 
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
+        inventory = GetComponent<Inventory>();
         fov = GetComponentInChildren<FieldOfView>();
         darkness = transform.Find("Darkness").gameObject;
 
@@ -114,4 +116,5 @@ public class PlayerController : MonoBehaviour
 
         fov.AimAtAngle(theta);
     }
+
 }
