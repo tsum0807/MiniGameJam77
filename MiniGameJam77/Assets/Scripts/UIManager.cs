@@ -38,8 +38,7 @@ public class UIManager : MonoBehaviour{
 	public void UpdateCourageBar(float newAmt){
 		courageBar.GetComponent<Slider>().value = newAmt;
 	}
-	public void UpdateBatteryBar(float newAmt){
-		print(newAmt);
+	public void UpdateBatteryBar(float newAmt){ 
 		batteryBar.GetComponent<Slider>().value = newAmt;
 	}
 	public void InsertInventoryBar(string itemName, Sprite itemSprite)

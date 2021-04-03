@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  landingIndicator: {fileID: 21300000, guid: 3913a4ab3d110f541855cbdfab582f86, type: 3}
+  landingIndicator: {fileID: 21300000, guid: 02f941eccef6a394d8b389e3a58ec439, type: 3}
   monsterSprite: {fileID: 21300000, guid: cd30eb220bac92e47a3972388b1fff5a, type: 3}
   maxHealth: 3
   speed: 3

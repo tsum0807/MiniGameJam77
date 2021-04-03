@@ -54,6 +54,7 @@ public class MonsterController : MonoBehaviour
             CheckJumpTimer();
         }else if(state == STATE.Landing){
             curLandingTime -= Time.deltaTime;
+            PlayLandingAnim();
             CheckLandTimer();
         }
     }
@@ -69,6 +70,7 @@ public class MonsterController : MonoBehaviour
             transform.position = player.transform.position;
             spriteRenderer.enabled = true;
             spriteRenderer.sprite = landingIndicator;
+            transform.localScale = Vector3.zero;
         }
     }
 
@@ -82,7 +84,18 @@ public class MonsterController : MonoBehaviour
             spriteRenderer.enabled = true;
             spriteRenderer.sprite = monsterSprite;
             collider.enabled = true;
+            // Set scale to normal
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            print("landed");
         }
+    }
+
+    private void PlayLandingAnim()
+    {
+        // expand circle
+        float curAmt = (landingTime - curLandingTime) / landingTime;
+        Vector3 newScale = new Vector3(curAmt, curAmt, 1);
+        transform.localScale = newScale;
     }
 
 

@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class InteractableObj : MonoBehaviour{
 
+    [Header("Sprites Settings")]
     [SerializeField] private Sprite[] sprites;
+
+    [Header("Requirement Settings")]
     [SerializeField] private bool isItem;
+    [SerializeField] private string itemRequired;
+    [SerializeField] private bool itemGetsUsed;
 
     private GameObject player;
 
@@ -28,12 +33,27 @@ public class InteractableObj : MonoBehaviour{
     public void Interact(){
         state = STATE.Interacted;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Inventory playerInventory = player.GetComponent<Inventory>();
 
         // Give item if is an item
         if (isItem)
         {
-            player.GetComponent<Inventory>().AddToInventory(gameObject.name);
+            playerInventory.AddToInventory(gameObject.name);
             UIManager.UI.InsertInventoryBar(gameObject.name, sr.sprite);
+        }
+
+        print(itemRequired);
+        if(itemRequired != "")
+        {
+            if (!playerInventory.HaveItem(itemRequired))
+            {
+                // Dont have required item
+                // Show indicator 
+                return;
+            }else if (itemGetsUsed)
+            {
+                playerInventory.UseItem(itemRequired);
+            }
         }
 
         // Change sprite if exists
