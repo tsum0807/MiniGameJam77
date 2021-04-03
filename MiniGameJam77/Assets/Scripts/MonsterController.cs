@@ -51,10 +51,14 @@ public class MonsterController : MonoBehaviour
             MoveTowardsObj(player);
         }else if(state == STATE.Jumping){
             curJumpTime -= Time.deltaTime;
+            // follow player position
+            //transform.position = player.transform.position - new Vector3(0f, 0.5f, 0f);
+            MoveTowardsObj(player);
+            ExpandCircle();
             CheckJumpTimer();
         }else if(state == STATE.Landing){
             curLandingTime -= Time.deltaTime;
-            PlayLandingAnim();
+            ShrinkCircle();
             CheckLandTimer();
         }
     }
@@ -66,11 +70,7 @@ public class MonsterController : MonoBehaviour
             // Start land animation and stuff
             state = STATE.Landing;
             
-            // Show monster landing location indicator
-            transform.position = player.transform.position;
-            spriteRenderer.enabled = true;
-            spriteRenderer.sprite = landingIndicator;
-            transform.localScale = Vector3.zero;
+            //transform.localScale = Vector3.zero;
         }
     }
 
@@ -86,14 +86,21 @@ public class MonsterController : MonoBehaviour
             collider.enabled = true;
             // Set scale to normal
             transform.localScale = new Vector3(1f, 1f, 1f);
-            print("landed");
         }
     }
 
-    private void PlayLandingAnim()
+    private void ExpandCircle()
     {
         // expand circle
-        float curAmt = (landingTime - curLandingTime) / landingTime;
+        float curAmt = (jumpTime - curJumpTime) / jumpTime;
+        Vector3 newScale = new Vector3(curAmt, curAmt, 1);
+        transform.localScale = newScale;
+    }
+
+    private void ShrinkCircle()
+    {
+        // shrink circle
+        float curAmt = curLandingTime / landingTime;
         Vector3 newScale = new Vector3(curAmt, curAmt, 1);
         transform.localScale = newScale;
     }
@@ -113,11 +120,14 @@ public class MonsterController : MonoBehaviour
         }
 
         // "Jump" disappear from scene and reappear later
-        spriteRenderer.enabled = false;
+        //spriteRenderer.enabled = false;
         collider.enabled = false;
         // play some jump anim
         state = STATE.Jumping;
-        // gameObject.SetActive(false);
+
+        // Show monster landing location indicator
+        //spriteRenderer.enabled = true;
+        spriteRenderer.sprite = landingIndicator;
     }
 
     private void PlayHurtAnim(){

@@ -19,6 +19,13 @@ public class PlayerController : MonoBehaviour
     private GameObject darkness;
     private Inventory inventory;
 
+    public bool isMoving = false;
+    public int facingDir = 0;
+    // 0 - down
+    // 1 - left
+    // 2 - up
+    // 3 - right
+
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
         inventory = GetComponent<Inventory>();
@@ -41,6 +48,7 @@ public class PlayerController : MonoBehaviour
         
         // Pass horizontal and vertical directions
         Move(h, v);
+        CalculateDir(h, v);
 
         // Aim
         // Get mouse position in world space
@@ -115,6 +123,36 @@ public class PlayerController : MonoBehaviour
         }
 
         fov.AimAtAngle(theta);
+    }
+
+    private void CalculateDir(float h, float v)
+    {
+        if(h == 0 && v == 0){
+            isMoving = false;
+            return;
+        }
+        isMoving = true;
+        if (h > 0)
+        {
+            // right
+            facingDir = 3;
+        }
+        else if (h < 0)
+        {
+            // left
+            facingDir = 1;
+        }
+
+        if (v > 0)
+        {
+            // up
+            facingDir = 2;
+        }
+        else if (v < 0)
+        {
+            // down
+            facingDir = 0;
+        }
     }
 
 }
