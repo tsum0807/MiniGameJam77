@@ -53,9 +53,9 @@ public class FieldOfView : MonoBehaviour
             Vector3 vertex = new Vector3();
             RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(curAngle), _viewDistance, ~IgnoreLayers);
             // Check for monster collision
-            if(raycastHit2D.collider != null && raycastHit2D.collider.tag == "Monster"){
+            if(raycastHit2D.collider != null && (raycastHit2D.collider.tag == "Monster" || raycastHit2D.collider.tag == "Transparent")){
                 // Hit monster
-                if(curMode){
+                if(raycastHit2D.collider.tag == "Monster" && curMode){
                     // Do dmg to monster if in focus mode
                     raycastHit2D.collider.GetComponent<MonsterController>().TakeDamage();
                 }
