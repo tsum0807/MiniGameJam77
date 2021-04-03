@@ -7,12 +7,25 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private FieldOfView fov;
     [SerializeField] private float speed;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float maxCourage;
+    [SerializeField] private float maxBattery;
+
+    private float curHealth;
+    private float curCourage;
+    private float curBattery;
 
     private Rigidbody2D rigidBody;
+    private GameObject darkness;
 
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
         fov = GetComponentInChildren<FieldOfView>();
+        darkness = transform.Find("Darkness").gameObject;
+
+        curHealth = maxHealth;
+        curCourage = maxCourage;
+        curBattery = maxBattery;
     }
 
     void Update(){
@@ -36,6 +49,50 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Switch Mode")){
             fov.SwitchMode();
         }
+
+        // Interact, done in player detector
+
+        // Debug
+        if(Input.GetButtonDown("Debug Reset")){
+            // left alt
+            if(darkness)
+                darkness.SetActive(!darkness.activeInHierarchy);
+        }
+
+    }
+
+    public void ChangeHealth(float amt){
+        curHealth += amt;
+        if(curHealth > maxHealth){
+            curHealth = maxHealth;
+        }else if(curHealth <= 0){
+            curHealth = 0;
+            // Die
+        }
+        UIManager.UI.UpdateHealthBar(curBattery);
+    }
+
+    public void ChangeCourage(float amt){
+        curCourage += amt;
+        if(curCourage > maxCourage){
+            curCourage = maxCourage;
+        }else if(curCourage <= 0){
+            curCourage = 0;
+        }
+        UIManager.UI.UpdateCourageBar(curBattery);
+    }
+
+    public void ChangeBattery(float amt){
+        curBattery += amt;
+        if(curBattery > maxBattery){
+            curBattery = maxBattery;
+        }else if(curBattery <= 0){
+            curBattery = 0;
+        }
+        UIManager.UI.UpdateBatteryBar(curBattery);
+    }
+    public float GetCurBattery(){
+        return curBattery;
     }
 
     private void Move(float h, float v){

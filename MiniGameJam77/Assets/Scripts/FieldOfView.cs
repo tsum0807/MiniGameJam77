@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+    
+    [Header("Battery Settings")]
+    [SerializeField] private float batteryUsagePerSec;
 
+    [Header("Cone Settings")]
     [SerializeField] private float normalFOV;
     [SerializeField] private float normalViewDistance;
     [SerializeField] private float focusedFOV;
     [SerializeField] private float focusedViewDistance;
     [SerializeField] private int numRay;
     [SerializeField] private LayerMask IgnoreLayers;
-    [SerializeField] private LayerMask IgnoreLayersWithMonster;
+    [SerializeField] private LayerMask MonsterLayer;
+    [SerializeField] private LayerMask BehindMaskLayer;
     
     // [SerializeField] private float fov = 90f;
 
@@ -19,19 +24,33 @@ public class FieldOfView : MonoBehaviour
     private float _fov;
     private float _viewDistance;
     private float startingAngle = 0f;
-    private bool curMode = false; // 0 - normal, 1 - focused
+    private bool isFocused = false; // 0 - normal, 1 - focused
+    private LayerMask curIgnoreLayers;
 
     private MeshFilter _meshFilter;
+    private PlayerController playerController;
 
     void Start(){
         _meshFilter = GetComponent<MeshFilter>();
+        playerController = transform.parent.GetComponent<PlayerController>();
         // starts off with normal fov and view dist
         _fov = normalFOV;
         _viewDistance = normalViewDistance;
+        curIgnoreLayers = IgnoreLayers;
     }
 
     void Update(){
         UpdateMesh();
+
+        // Use Battery
+        if(isFocused){
+            // How much to use per second
+            playerController.ChangeBattery(Time.deltaTime * -batteryUsagePerSec);
+            if(playerController.GetCurBattery() <= 0){
+                // Unfocus when out of batttery
+                isFocused = false;
+            }
+        }
     }
 
     // Update mesh with new fov
@@ -51,25 +70,38 @@ public class FieldOfView : MonoBehaviour
         // Calculate each vertex of each triangle
         for(int i=0; i<=numRay; i++){
             Vector3 vertex = new Vector3();
-            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(curAngle), _viewDistance, ~IgnoreLayers);
-            // Check for monster collision
-            if(raycastHit2D.collider != null && (raycastHit2D.collider.tag == "Monster" || raycastHit2D.collider.tag == "Transparent")){
-                // Hit monster
-                if(raycastHit2D.collider.tag == "Monster" && curMode){
-                    // Do dmg to monster if in focus mode
-                    raycastHit2D.collider.GetComponent<MonsterController>().TakeDamage();
+            // Reassign ignore layers
+            curIgnoreLayers = IgnoreLayers;
+            RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(curAngle), _viewDistance, ~curIgnoreLayers);
+            
+
+            while(raycastHit2D.collider != null){
+                if(raycastHit2D.collider.tag == "Transparent"){
+                    // Has hit box but should be see through
+                    curIgnoreLayers += BehindMaskLayer;
+                    // cast new ray
+                    raycastHit2D = Physics2D.Raycast(raycastHit2D.point, GetVectorFromAngle(curAngle), _viewDistance - raycastHit2D.distance, ~curIgnoreLayers);
+                }else if(raycastHit2D.collider.tag == "Monster"){
+                    // Monster
+                    if(isFocused){
+                        // Do dmg to monster if in focus mode
+                        raycastHit2D.collider.GetComponent<MonsterController>().TakeDamage();
+                    }
+                    curIgnoreLayers += MonsterLayer;
+                    // cast new ray from monster
+                    raycastHit2D = Physics2D.Raycast(raycastHit2D.point, GetVectorFromAngle(curAngle), _viewDistance - raycastHit2D.distance, ~curIgnoreLayers);
+                }else{
+                    // Hit wall
+                    vertex = raycastHit2D.point - (Vector2)transform.position;
+                    break;
                 }
-                // cast new ray from monster
-                raycastHit2D = Physics2D.Raycast(raycastHit2D.point, GetVectorFromAngle(curAngle), _viewDistance - raycastHit2D.distance, ~IgnoreLayersWithMonster);
             }
 
             if(raycastHit2D.collider == null){
                 // raycast didnt hit
                 vertex = GetVectorFromAngle(curAngle) * _viewDistance;
-            }else{
-                // hit
-                vertex = raycastHit2D.point - (Vector2)transform.position;
             }
+
             vertices[curVertex] = vertex;
 
             if(i > 0){
@@ -109,13 +141,13 @@ public class FieldOfView : MonoBehaviour
     }
 
     public void SwitchMode(){
-        curMode = !curMode;
-        if(!curMode){
+        isFocused = !isFocused;
+        if(!isFocused){
             // Normal wide mode
             SetFOV(normalFOV);
             SetnormalViewDistance(normalViewDistance);
-        }else{
-            // Focused mode
+        }else if(playerController.GetCurBattery() > 0){
+            // Focused mode if player has battery
             SetFOV(focusedFOV);
             SetnormalViewDistance(focusedViewDistance);
         }

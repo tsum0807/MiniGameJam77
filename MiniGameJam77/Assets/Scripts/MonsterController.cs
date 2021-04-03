@@ -34,6 +34,8 @@ public class MonsterController : MonoBehaviour
     }
 
     void Start(){
+        // Find player obj
+        player = GameObject.Find("Player");
         curHealth = maxHealth;
         curJumpTime = jumpTime;
         curLandingTime = landingTime;

@@ -5,9 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     
-    [SerializeField] private GameObject darkness;
+    // [SerializeField] private GameObject darkness;
+
     void Start(){
-        darkness.SetActive(true);
+        // darkness = GameObject.Find("Darkness");
+        
+        // if(darkness)
+        //     darkness.SetActive(true);
     }
 
     void Update(){
