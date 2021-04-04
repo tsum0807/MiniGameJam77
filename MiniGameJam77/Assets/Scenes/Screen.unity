@@ -16802,17 +16802,26 @@ PrefabInstance:
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
       propertyPath: dialogue.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: You escaped the monster...
+      value: "(But what if he didn\u2019t make it? What if he\u2019s dead? I can\u2019t
+        just wait here and hope. I don\u2019t want to get cut up by that thing, but
+        I\u2019d rather risk that than just die waiting. I was brave once. I can
+        be brave again. I just need to keep doing this until I get to the hangar.) "
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: for now.
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: '(Find a fuse. Find the fuse box. Turn the power back on. Repeat. Easy,
+        right?) '
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112847, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
@@ -26370,6 +26379,69 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Note1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: isNote
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: hasDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: "There\u2019s a flashlight on the table, as well as a note with hastily
+        scribbled handwriting."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: "(What\u2019s this?)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Note
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: "If you are reading this, I pity you. It would have been better if you
+        had remained asleep, but the Bounty\u2019s systems will start shedding power
+        at some point in the next few days. I have left a rechargeable flashlight
+        so you can at least see what\u2019s going on.\\n\\nI will lock the door and
+        leave the keycard with Lieutenant Rogers, so that you do not accidentally
+        open the door until it is safe to do so. I am not sure what is going on,
+        just that there is some kind of creature on the other side of the door. Something
+        dangerous. All you can do now is to stay inside and hope that I have succeeded
+        in making it to the hangar and that help is therefore on the way.\\n\\nGood
+        luck.\\n\\nShip Engineer Erol of the Bounty, Mokse Corp."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: "(Some creature? Did an animal get loose? I\u2019d better go see if
+        the door is still locked.)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[5]
+      value: "Walk around with \u201CWASD\u201D and investigate objects with the
+        \u201CE\u201D key."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[6]
+      value: "You now have a flashlight. Press \u201CF\u201D. Remember, it has a
+        battery, so use it only when you need it."
       objectReference: {fileID: 0}
     - target: {fileID: 3738226493028061175, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}

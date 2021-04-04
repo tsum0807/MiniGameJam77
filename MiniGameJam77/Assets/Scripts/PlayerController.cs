@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
         UIManager.UI.UpdateCourageBar(curCourage);
         UIManager.UI.UpdateBatteryBar(curBattery);
 
-        AudioManager.AM.PlayAmbience();
+        PlayIntroCutscene();
+        //AudioManager.AM.PlayAmbience();
     }
 
     void Update(){
@@ -117,6 +118,8 @@ public class PlayerController : MonoBehaviour
         }else if(curHealth <= 0){
             curHealth = 0;
             // Die
+            AudioManager.AM.PlayScreamSound();
+            UIManager.UI.Lose();
         }
         UIManager.UI.UpdateHealthBar(curHealth);
     }
@@ -154,6 +157,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move(float h, float v){
+        //print("moving " + h + " " + v);
         // Apply movement to velocity
         Vector2 velocity = new Vector2();
         velocity.x = speed * h * Time.deltaTime;
@@ -220,6 +224,27 @@ public class PlayerController : MonoBehaviour
     public void LightsOn()
     {
         darkness.SetActive(false);
+    }
+
+    private void PlayIntroCutscene()
+    {
+        string[] dialogues = new string[3];
+        dialogues[0] = "<coughing> (Urgh, my head is killing me. Where am I?)";
+        dialogues[1] = "(The cryo chamber. Right. What’s going on? Why is it so dark?)";
+        dialogues[2] = "(Why isn’t anyone else awake? Urgh. The computer must have woken me up too early. Typical Mokse Corp technology. The Captain’s going to answer for this.)";
+        UIManager.UI.PlayDialogue(dialogues);
+    }
+
+    public void MoveToTable()
+    {
+        Move(0.5f, -0.1f);
+        StartCoroutine(StopAfter(2f));
+    }
+
+    IEnumerator StopAfter(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        Move(0f, 0f);
     }
 
     public void PlayMonsterCutscene()

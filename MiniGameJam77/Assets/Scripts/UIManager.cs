@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour{
 	public bool isInDialogue = false;
 	private string[] _dialogues;
 	private int curDialogue = 0;
-
+	private bool isIntro = true;
 
 	void Awake(){
 		if(UI != null){
@@ -79,9 +79,19 @@ public class UIManager : MonoBehaviour{
 		}
 		else
 		{
-			isInDialogue = false;
-			dialogueBox.SetActive(false);
-			noteObj.SetActive(false);
+			if (isIntro)
+			{
+				player.GetComponent<PlayerController>().MoveToTable();
+				dialogueBox.SetActive(false);
+				isIntro = false;
+			}
+			else
+			{
+				isIntro = false;
+				isInDialogue = false;
+				dialogueBox.SetActive(false);
+				noteObj.SetActive(false);
+			}
 		}
 		// Next dialogue
 		curDialogue++;
@@ -135,4 +145,9 @@ public class UIManager : MonoBehaviour{
 	{
 
 	}
+
+	public void Lose()
+    {
+
+    }
 }
