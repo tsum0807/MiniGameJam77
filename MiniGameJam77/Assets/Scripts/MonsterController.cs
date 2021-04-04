@@ -46,6 +46,11 @@ public class MonsterController : MonoBehaviour
         HandleStates();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print(collision.collider.name);
+    }
+
     private void HandleStates(){
         if(state == STATE.Walking){
             MoveTowardsObj(player);

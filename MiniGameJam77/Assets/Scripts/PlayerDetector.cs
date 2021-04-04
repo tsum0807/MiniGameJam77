@@ -17,9 +17,11 @@ public class PlayerDetector : MonoBehaviour{
 
     void Update(){
         if(playerInside && Input.GetButtonDown("Interact")){
-            parentObj.Interact();
-            // Interacted so disable text
-            interactText.SetActive(false);
+            if (parentObj.Interact())
+            {
+                // Interacted so disable text
+                interactText.SetActive(false);
+            }
         }
     }
 

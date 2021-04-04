@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
         curHealth = maxHealth;
         curCourage = maxCourage;
         curBattery = maxBattery;
+        UIManager.UI.UpdateHealthBar(curHealth);
+        UIManager.UI.UpdateCourageBar(curCourage);
+        UIManager.UI.UpdateBatteryBar(curBattery);
     }
 
     void Update(){
@@ -81,7 +84,7 @@ public class PlayerController : MonoBehaviour
             curHealth = 0;
             // Die
         }
-        UIManager.UI.UpdateHealthBar(curBattery);
+        UIManager.UI.UpdateHealthBar(curHealth);
     }
 
     public void ChangeCourage(float amt){
@@ -91,7 +94,7 @@ public class PlayerController : MonoBehaviour
         }else if(curCourage <= 0){
             curCourage = 0;
         }
-        UIManager.UI.UpdateCourageBar(curBattery);
+        UIManager.UI.UpdateCourageBar(curCourage);
     }
 
     public void ChangeBattery(float amt){

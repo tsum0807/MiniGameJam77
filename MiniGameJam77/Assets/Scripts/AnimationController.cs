@@ -57,7 +57,6 @@ public class AnimationController : MonoBehaviour
             {
                 case (0):
                     animator.Play("idleDown");
-                    print("idle down");
                     break;
                 case (1):
                     animator.Play("idleLeft");
@@ -71,6 +70,6 @@ public class AnimationController : MonoBehaviour
             }
                 
         }
-        print(curDir + " not moving: " + curIsMoving);
+        //print(curDir + " not moving: " + curIsMoving);
     }
 }

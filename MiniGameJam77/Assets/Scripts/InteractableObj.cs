@@ -30,8 +30,7 @@ public class InteractableObj : MonoBehaviour{
         
     }
 
-    public void Interact(){
-        state = STATE.Interacted;
+    public bool Interact(){
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Inventory playerInventory = player.GetComponent<Inventory>();
 
@@ -42,27 +41,29 @@ public class InteractableObj : MonoBehaviour{
             UIManager.UI.InsertInventoryBar(gameObject.name, sr.sprite);
         }
 
-        print(itemRequired);
         if(itemRequired != "")
         {
             if (!playerInventory.HaveItem(itemRequired))
             {
                 // Dont have required item
                 // Show indicator 
-                return;
+                print("dont have item: " + itemRequired);
+                return false;
             }else if (itemGetsUsed)
             {
                 playerInventory.UseItem(itemRequired);
             }
         }
 
+        state = STATE.Interacted;
+
         // Change sprite if exists
-        if(sprites.Length > 1){
+        if (sprites.Length > 1){
             sr.sprite = sprites[1];
         }else{
             // Disable object if no "disabled" sprite
             gameObject.SetActive(false);
-            return;
+            return true;
         }
 
         // Disable any hitbox if exists
@@ -71,6 +72,7 @@ public class InteractableObj : MonoBehaviour{
         if(collider != null){
             collider.enabled = false;
         }
+        return true;
     }
 
     public bool IsInteractable(){

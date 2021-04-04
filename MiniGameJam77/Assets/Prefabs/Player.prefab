@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1097347642516771207}
   - component: {fileID: 3544533306031208222}
   - component: {fileID: 743130977992578147}
-  - component: {fileID: 6806605466988220632}
+  - component: {fileID: 6537279916676801083}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fov: {fileID: 0}
-  speed: 350
+  speed: 410
   maxHealth: 10
   maxCourage: 100
   maxBattery: 100
@@ -379,7 +379,7 @@ Animator:
   m_GameObject: {fileID: 1097347642516771206}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd74c7e7d0c8e5e4f85c39fc3f368f11, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -388,21 +388,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &6806605466988220632
-Animation:
+--- !u!114 &6537279916676801083
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1097347642516771206}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86bb886c2afd9944ba4f1fcdecc934c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7229826743111893407
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: BehindMaskLayer.m_Bits
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
+        type: 3}
+      propertyPath: AfterObjectLayer.m_Bits
+      value: 16384
       objectReference: {fileID: 0}
     - target: {fileID: 6282425559072807361, guid: 3b63caeefd03b54468c1932bf72b7160,
         type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2402490578016627336}
   m_Layer: 14
   m_Name: OutsideCollision
-  m_TagString: Untagged
+  m_TagString: IgnoreCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2092444958173447586}
   m_Layer: 14
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: IgnoreCollision
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,12 +165,12 @@ PrefabInstance:
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.3183594
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
@@ -180,17 +180,17 @@ PrefabInstance:
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
@@ -206,6 +206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: itemRequired
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
@@ -227,7 +232,7 @@ PrefabInstance:
     - target: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_Name
-      value: Door
+      value: Door Variant (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
