@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - Transparent
+  - Object
+  - IgnoreCollision
   layers:
   - Default
   - TransparentFX
@@ -19,10 +22,10 @@ TagManager:
   - Darkness
   - Player
   - Objects
-  - 
-  - 
-  - 
-  - 
+  - Monster
+  - AfterObject
+  - SafeZone
+  - MonsterJumping
   - 
   - 
   - 
@@ -41,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Interactables
+    uniqueID: 3717866975
     locked: 0

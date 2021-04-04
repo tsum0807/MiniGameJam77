@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6282425559072807391}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -92,9 +92,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa6e096ea089c74ba7ab1a1d3a34ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 90
+  batteryUsagePerSec: 0
+  normalFOV: 70
+  normalViewDistance: 2
+  focusedFOV: 30
+  focusedViewDistance: 5
   numRay: 100
-  viewDistance: 5
-  IgnoreLayer:
+  IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 2304
+    m_Bits: 35072
+  MonsterLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  BehindMaskLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  ObjectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  AfterObjectLayer:
+    serializedVersion: 2
+    m_Bits: 0
