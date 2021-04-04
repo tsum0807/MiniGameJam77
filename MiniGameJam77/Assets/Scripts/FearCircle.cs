@@ -8,6 +8,9 @@ public class FearCircle : MonoBehaviour
 
     private bool playerInside;
     private PlayerController playerController;
+
+    public bool canFear = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,7 @@ public class FearCircle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInside && playerController != null)
+        if (playerInside && canFear && playerController != null)
         {
             playerController.ChangeCourage(-fearAmt * Time.deltaTime);
         }

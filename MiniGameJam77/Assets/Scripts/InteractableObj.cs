@@ -119,6 +119,12 @@ public class InteractableObj : MonoBehaviour{
             isQuestTrigger = false;
         }
 
+        // Hardcoding red door here
+        if(gameObject.name == "RedDoor")
+        {
+            player.transform.position = transform.position;
+        }
+
         return true;
     }
 

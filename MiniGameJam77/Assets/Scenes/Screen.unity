@@ -1134,6 +1134,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8380414425283569090}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &233005432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3762973729678660238, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 706722230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &246075926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1689,6 +1695,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d344e1f20e9ce1b4788c33b2ae5ae9f9, type: 3}
+--- !u!1 &450503626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1097347642516771206, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1835532099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &488780616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4310960943505818954, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
@@ -1724,7 +1736,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e22b530b91781842957328ccf58f784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questText: {fileID: 0}
+  questText: {fileID: 1506905694}
+  monster: {fileID: 1358152256}
+  player: {fileID: 450503626}
 --- !u!4 &496776370
 Transform:
   m_ObjectHideFlags: 0
@@ -2065,7 +2079,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -2156,7 +2170,7 @@ PrefabInstance:
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
@@ -2216,6 +2230,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
+      propertyPath: hasDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
       propertyPath: itemGetsUsed
       value: 1
       objectReference: {fileID: 0}
@@ -2236,6 +2255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
+      propertyPath: dialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: -6923900727490736670, guid: 940198a854b9ca84782b56bebd6f6556,
@@ -2246,6 +2270,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6923900727490736670, guid: 940198a854b9ca84782b56bebd6f6556,
         type: 3}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: "(The power\u2019s on again. And it looks like the light chased that
+        creature away.) "
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: (I did it. I actually did it.)
+      objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_Name
@@ -2578,7 +2613,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -12938,37 +12973,47 @@ PrefabInstance:
     - target: {fileID: 4310960942845429258, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
-        type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310960944456643101, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 4310960944456643101, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5674227694339779696, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5674227694339779696, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269928996939808475, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269928996939808475, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2a748fa09a58a44b127a5ebdbb78f1, type: 3}
@@ -13051,103 +13096,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33331cc9b92a664a9e3889d9ec37522, type: 3}
---- !u!1001 &714389017
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1401625162}
-    m_Modifications:
-    - target: {fileID: 3498243776363919915, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226491899581386, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_Name
-      value: Note2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738226493028061175, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700312716951847559, guid: d16f70d418087f14fae42ef3ff922c41,
-        type: 3}
-      propertyPath: m_text
-      value: "I wish I could get just a drop of water on my tongue again. Or something
-        to eat. Even those disgusting crackers in the ration packs. There\u2019s
-        still a ton of it in the kitchens, I\u2019m sure of it. But that thing is
-        out there. I can\u2019t leave this room. \r\n\r\nErol gave me the keycard
-        to the cryo chamber so I can open it after I replace the fuse in the power
-        core and get the lights back on. He said the lights will chase the monster
-        out of the area. I can\u2019t believe it managed to short the whole system
-        like that. I can\u2019t help but think it cut out the power on purpose to
-        turn off the lights. But I don\u2019t want to think about that.\r\n\r\nIt\u2019s
-        too much. I can\u2019t do it. I can\u2019t fix the power. So I\u2019ve just
-        come into the cryo chamber to hide from that thing. It\u2019s killed everyone
-        else, and probably Erol too. I\u2019m never leaving this room. Not even if
-        I die of thirst and hunger. \r\n\r\nIf any of the sleepers wake up and find
-        this, I hope you stay here. If you go outside, you\u2019ll die.\r"
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d16f70d418087f14fae42ef3ff922c41, type: 3}
 --- !u!1001 &724420461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13164,7 +13112,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -13358,6 +13306,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
         type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 450503626}
+    - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
+        type: 3}
+      propertyPath: noteObj
+      value: 
+      objectReference: {fileID: 233005432}
+    - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
+        type: 3}
+      propertyPath: noteText
+      value: 
+      objectReference: {fileID: 1487615269}
+    - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 488780616}
@@ -13495,7 +13458,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -13581,7 +13544,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -14029,6 +13992,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
+        type: 3}
+      propertyPath: jumpTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
+        type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367403231789307263, guid: d402afd247c7d4540854e835610a58f4,
+        type: 3}
+      propertyPath: landingTime
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6125404155473924824, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
       propertyPath: m_RootOrder
@@ -14037,12 +14015,12 @@ PrefabInstance:
     - target: {fileID: 6125404155473924824, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.97
+      value: -5.9
       objectReference: {fileID: 0}
     - target: {fileID: 6125404155473924824, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.02
+      value: 9.92
       objectReference: {fileID: 0}
     - target: {fileID: 6125404155473924824, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
@@ -14564,8 +14542,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
+      propertyPath: hasDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
       propertyPath: itemRequired
       value: RedKeyCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: isQuestTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: '!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: "(What was that? This is insane. How could this have happened? I have
+        to hurry. The light seemed to scare it off, so if I can use the flashlight,
+        I can still do this. I just need to breathe and hurry up, and I\u2019ll be
+        fine.)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: You can drive the monster off with the hi-beam of your flashlight. Press
+        F, but remember that the hi-beam uses up your battery!
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: You can drive the monster off with the hi-beam of your flashlight. Press
+        F, but remember that the hi-beam uses up your battery!
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112847, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
@@ -14668,7 +14686,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -16284,7 +16302,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -16524,7 +16542,7 @@ PrefabInstance:
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
       propertyPath: hasDialogue
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
@@ -16533,8 +16551,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
+      propertyPath: isQuestTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
       propertyPath: dialogue.Array.size
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: You escaped the monster...
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: for now.
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112847, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
@@ -16667,7 +16700,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: dialogue.Array.size
-      value: 1
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -16688,6 +16721,88 @@ PrefabInstance:
         any obvious cause of death, other than that they seem ill. He has a name
         tag that reads \u201CRogers\u201D. There is a small journal clutched in his
         one hand."
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Most of it is general entry logs about the ship, but the last entry,
+        written with a much less steady hand, seems interesting.
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: Note
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[3]
+      value: "I wish I could get just a drop of water on my tongue again. Or something
+        to eat. Even those disgusting crackers in the ration packs. There\u2019s
+        still a ton of it in the kitchens, I\u2019m sure of it. But that thing is
+        out there. I can\u2019t leave this room.\\n\\nErol gave me the keycard to
+        the cryo chamber so I can open it after I replace the fuse in the power core
+        and get the lights back on. He said the lights will chase the monster out
+        of the area. I can\u2019t believe it managed to short the whole system like
+        that. I can\u2019t help but think it cut out the power on purpose to turn
+        off the lights. But I don\u2019t want to think about that.\\n\\nIt\u2019s
+        too much. I can\u2019t do it. I can\u2019t fix the power. So I\u2019ve just
+        come into the cryo chamber to hide from that thing. It\u2019s killed everyone
+        else, and probably Erol too. I\u2019m never leaving this room. Not even if
+        I die of thirst and hunger.\\n\\nIf any of the sleepers wake up and find
+        this, I hope you stay here. If you go outside, you\u2019ll die."
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[4]
+      value: "(This creature seems to be a bigger deal than I thought. He said it\u2019s
+        killed everyone. He was so scared that he just stayed here until he died
+        of thirst.)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[5]
+      value: "A search of the man\u2019s jacket turns up a red keycard.  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[6]
+      value: "(I\u2019d bet this opens the door. But there\u2019s some kind of monster
+        inside. Maybe I should just wait in here.)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[7]
+      value: .
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[8]
+      value: ..
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[9]
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[10]
+      value: "(No, I won\u2019t go out like him. Rogers said that getting the lights
+        back on might chase away that\u2026 thing. I can do it. I can fix it. It\u2019s
+        been a while since I\u2019ve used my engineering degree, but it\u2019s like
+        riding a bike, right? Maybe I can make it to the hangar and escape. I just
+        have to be brave.) "
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[11]
+      value: '(Find a fuse. Find the fuse box. Turn the power back on. Easy, right?) '
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[12]
+      value: "Now that you have the red keycard, you can open the door. Press \u201CE\u201D
+        on the door to open it."
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930207, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -17186,7 +17301,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -17261,6 +17376,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1355941876}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1358152256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6125404155473924826, guid: d402afd247c7d4540854e835610a58f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 969094563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1385026662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 357721506835112844, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
@@ -17307,7 +17428,6 @@ Transform:
   - {fileID: 201793832}
   - {fileID: 50970350}
   - {fileID: 950519416}
-  - {fileID: 1417568132}
   - {fileID: 287475054}
   - {fileID: 1582457302}
   - {fileID: 858627789}
@@ -17323,17 +17443,17 @@ Transform:
   m_Father: {fileID: 126593527}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1417568132 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
-    type: 3}
-  m_PrefabInstance: {fileID: 714389017}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1451339738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1161846870858569510, guid: 0a22b8901fd7f2b4ba702b21f08e4875,
     type: 3}
   m_PrefabInstance: {fileID: 51573889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1487615269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4318495406509459063, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 706722230}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1492653908 stripped
 Transform:
@@ -17341,6 +17461,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5932213274272971607}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1506905694 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7220397767990171335, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 706722230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1520224663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7228984484287120239, guid: b33331cc9b92a664a9e3889d9ec37522,
@@ -17363,7 +17495,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -21700,6 +21832,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52617740, guid: 3e368a0f1e88fc64db6c621b5f50de6f, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 52617740, guid: 3e368a0f1e88fc64db6c621b5f50de6f, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52617740, guid: 3e368a0f1e88fc64db6c621b5f50de6f, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52617740, guid: 3e368a0f1e88fc64db6c621b5f50de6f, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1097347642516771206, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
         type: 3}
       propertyPath: m_Name
@@ -21990,11 +22138,11 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e319c61dc960c88478f6c84ccd4b6b0f, type: 2}
+    m_Data: {fileID: 11400000, guid: f9f4c4e5341bd3a4992252443311ad44, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 95c3e689a02c34847901529f7b5dc332, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: d30f790e730c8014ea9cbc00fc7f86a9, type: 2}
+    m_Data: {fileID: 11400000, guid: f8b7e0391273ded47a720a77c8bc435f, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c409f86617b223944a8f93f7712e484c, type: 2}
   - m_RefCount: 1
@@ -22051,14 +22199,12 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: -7814128760913166723, guid: 2d04d0bbcd816cb40ae3df1760ecc7db,
-      type: 3}
+    m_Data: {fileID: 21300000, guid: b64f60c87a79bb443b89597fbf6c49fe, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -7304524924686288914, guid: 2d04d0bbcd816cb40ae3df1760ecc7db,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 3040664000464648135, guid: 2d04d0bbcd816cb40ae3df1760ecc7db,
-      type: 3}
+    m_Data: {fileID: 21300000, guid: 8725670c357778e4caa88e53c7b13bca, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: d3486ac7d662ae24fb34ff86fcf1ec2a, type: 3}
   - m_RefCount: 1
@@ -22691,7 +22837,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -25601,7 +25747,7 @@ PrefabInstance:
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2560276098753380049, guid: 5d30f95bd6baef54e9163443206de8c8,
         type: 3}
@@ -25979,6 +26125,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700312716951847559, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700312716951847559, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d16f70d418087f14fae42ef3ff922c41, type: 3}

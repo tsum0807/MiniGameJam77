@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     // 2 - up
     // 3 - right
 
+
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
         inventory = GetComponent<Inventory>();
@@ -55,6 +56,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleInput(){
+        // Cant do anything while in dialogue
+        if (UIManager.UI.isInDialogue)
+        {
+            return;
+        }
         // Movement
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -172,37 +178,6 @@ public class PlayerController : MonoBehaviour
         fov.AimAtAngle(theta);
     }
 
-    //private void calculatedir(float h, float v)
-    //{
-    //    if (h == 0 && v == 0)
-    //    {
-    //        ismoving = false;
-    //        return;
-    //    }
-    //    ismoving = true;
-    //    if (h > 0)
-    //    {
-    //        right
-    //       facingdir = 3;
-    //    }
-    //    else if (h < 0)
-    //    {
-    //        left
-    //       facingdir = 1;
-    //    }
-
-    //    if (v > 0)
-    //    {
-    //        up
-    //       facingdir = 2;
-    //    }
-    //    else if (v < 0)
-    //    {
-    //        down
-    //       facingdir = 0;
-    //    }
-    //}
-
     private void CalculateDir(Vector3 mousePos)
     {
         Vector3 lookPos = mousePos - transform.position;
@@ -242,4 +217,18 @@ public class PlayerController : MonoBehaviour
         darkness.SetActive(false);
     }
 
+    public void PlayMonsterCutscene()
+    {
+        // Face forward (up)
+        FacePosition(transform.position + new Vector3(0, 1, 0));
+        StartCoroutine(DelayAction(0.3f));
+    }
+
+    IEnumerator DelayAction(float delayTime)
+    {
+        yield return new WaitForSeconds(1f);
+        Move(0f, -1f);
+        yield return new WaitForSeconds(delayTime);
+        Move(0f, 0f);
+    }
 }

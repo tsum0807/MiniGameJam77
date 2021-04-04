@@ -112,6 +112,8 @@ public class MonsterController : MonoBehaviour
             curSpeed = speed;
             // Set layer to normal
             gameObject.layer = LayerMask.NameToLayer("Monster");
+            // Give back fear
+            gameObject.GetComponentInChildren<FearCircle>().canFear = true;
         }
     }
 
@@ -156,12 +158,14 @@ public class MonsterController : MonoBehaviour
         state = STATE.Jumping;
         curJumpTime = jumpTime;
         curLandingTime= landingTime;
+        // cant fear while jumping
+        gameObject.GetComponentInChildren<FearCircle>().canFear = false;
 
         // Show monster landing location indicator
         spriteRenderer.sprite = landingIndicator;
 
         // Reduce speed while in mid jump
-        curSpeed = speed * 0.75f;
+        curSpeed = speed * 0.5f;
     }
 
     private void PlayHurtAnim(){
