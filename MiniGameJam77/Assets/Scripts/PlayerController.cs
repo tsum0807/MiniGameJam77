@@ -48,12 +48,14 @@ public class PlayerController : MonoBehaviour
         
         // Pass horizontal and vertical directions
         Move(h, v);
-        CalculateDir(h, v);
+        isMoving = (h == 0 && v == 0) ? false : true;
+        //CalculateDir(h, v);
 
         // Aim
         // Get mouse position in world space
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         FacePosition(mousePos);
+        CalculateDir(mousePos);
 
         // Switch flashlight mode
         if(Input.GetButtonDown("Switch Mode")){
@@ -125,33 +127,68 @@ public class PlayerController : MonoBehaviour
         fov.AimAtAngle(theta);
     }
 
-    private void CalculateDir(float h, float v)
-    {
-        if(h == 0 && v == 0){
-            isMoving = false;
-            return;
-        }
-        isMoving = true;
-        if (h > 0)
-        {
-            // right
-            facingDir = 3;
-        }
-        else if (h < 0)
-        {
-            // left
-            facingDir = 1;
-        }
+    //private void calculatedir(float h, float v)
+    //{
+    //    if (h == 0 && v == 0)
+    //    {
+    //        ismoving = false;
+    //        return;
+    //    }
+    //    ismoving = true;
+    //    if (h > 0)
+    //    {
+    //        right
+    //       facingdir = 3;
+    //    }
+    //    else if (h < 0)
+    //    {
+    //        left
+    //       facingdir = 1;
+    //    }
 
-        if (v > 0)
+    //    if (v > 0)
+    //    {
+    //        up
+    //       facingdir = 2;
+    //    }
+    //    else if (v < 0)
+    //    {
+    //        down
+    //       facingdir = 0;
+    //    }
+    //}
+
+    private void CalculateDir(Vector3 mousePos)
+    {
+        Vector3 lookPos = mousePos - transform.position;
+
+        if(lookPos.x >= lookPos.y)
         {
-            // up
-            facingDir = 2;
+            // bot right diag
+            if(lookPos.x >= -lookPos.y)
+            {
+                // right triangle
+                facingDir = 3;
+            }
+            else
+            {
+                // bottom triangle
+                facingDir = 0;
+            }
         }
-        else if (v < 0)
+        else
         {
-            // down
-            facingDir = 0;
+            // top right diag
+            if (lookPos.x >= -lookPos.y)
+            {
+                // top triangle
+                facingDir = 2;
+            }
+            else
+            {
+                // left triangle
+                facingDir = 1;
+            }
         }
     }
 

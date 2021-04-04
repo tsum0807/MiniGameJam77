@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &142939233241817050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2402490578016627336}
+  m_Layer: 14
+  m_Name: OutsideCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2402490578016627336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142939233241817050}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.32939577, y: -0.13909811, z: -0.8166051}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1779552875264899186}
+  m_Father: {fileID: 357721506835112844}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1767581494
 Rigidbody2D:
   serializedVersion: 4
@@ -47,6 +78,58 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &3918147546746908354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1779552875264899186}
+  - component: {fileID: 2092444958173447586}
+  m_Layer: 14
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1779552875264899186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918147546746908354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2402490578016627336}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &2092444958173447586
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918147546746908354}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.8587284, y: -0.37548316}
+  - {x: -0.18342495, y: -0.38107175}
+  - {x: -0.18736172, y: 0.6556023}
+  - {x: 0.845973, y: 0.6571315}
+  - {x: 0.84952736, y: -0.36533505}
 --- !u!1001 &6608626065369775964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54,6 +137,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6863608653803552662, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608653803552662, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608653803552663, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_RootOrder
@@ -131,11 +229,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Object
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccd4300bda32d34b8c09c0b226231b9, type: 3}
 --- !u!1 &357721506835112847 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 6608626065369775964}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &357721506835112844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
     type: 3}
   m_PrefabInstance: {fileID: 6608626065369775964}
   m_PrefabAsset: {fileID: 0}

@@ -17,7 +17,9 @@ public class FieldOfView : MonoBehaviour
     [SerializeField] private LayerMask IgnoreLayers;
     [SerializeField] private LayerMask MonsterLayer;
     [SerializeField] private LayerMask BehindMaskLayer;
-    
+    [SerializeField] private LayerMask ObjectLayer;
+    [SerializeField] private LayerMask AfterObjectLayer;
+
     // [SerializeField] private float fov = 90f;
 
 
@@ -73,9 +75,9 @@ public class FieldOfView : MonoBehaviour
             // Reassign ignore layers
             curIgnoreLayers = IgnoreLayers;
             RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(curAngle), _viewDistance, ~curIgnoreLayers);
-            
 
-            while(raycastHit2D.collider != null){
+
+            while (raycastHit2D.collider != null){
                 if(raycastHit2D.collider.tag == "Transparent"){
                     // Has hit box but should be see through
                     curIgnoreLayers += BehindMaskLayer;
@@ -89,8 +91,20 @@ public class FieldOfView : MonoBehaviour
                     }
                     curIgnoreLayers += MonsterLayer;
                     // cast new ray from monster
-                    raycastHit2D = Physics2D.Raycast(raycastHit2D.point, GetVectorFromAngle(curAngle), _viewDistance - raycastHit2D.distance, ~curIgnoreLayers);
-                }else{
+                    raycastHit2D = Physics2D.Raycast(raycastHit2D.point,
+                                                     GetVectorFromAngle(curAngle),
+                                                     _viewDistance - raycastHit2D.distance,
+                                                     ~curIgnoreLayers);
+                }else if(raycastHit2D.collider.tag == "Object")
+                {
+                    // Objects are not see through but can be seen
+                    raycastHit2D = Physics2D.Raycast(raycastHit2D.point,
+                                                     GetVectorFromAngle(curAngle),
+                                                     _viewDistance - raycastHit2D.distance,
+                                                     AfterObjectLayer);
+                }
+                else
+                {
                     // Hit wall
                     vertex = raycastHit2D.point - (Vector2)transform.position;
                     break;

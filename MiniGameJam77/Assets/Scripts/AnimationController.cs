@@ -6,13 +6,15 @@ public class AnimationController : MonoBehaviour
 {
 
     private PlayerController objController;
-    private Animator animator;
+    private Animation animator;
 
     private int prevDir;
     private bool prevIsMoving;
 
     void Start()
     {
+        animator = GetComponent<Animation>();
+        print(animator.Animations);
         // get player, else get monster
         if((objController = GetComponent<PlayerController>()) == null)
         {
@@ -43,7 +45,6 @@ public class AnimationController : MonoBehaviour
     {
         int curDir = objController.facingDir;
         bool curIsMoving = objController.isMoving;
-        print("changing anim");
 
         if (curIsMoving)
         {
@@ -56,12 +57,14 @@ public class AnimationController : MonoBehaviour
             {
                 case (0):
                     animator.Play("idleDown");
+                    print("idle down");
                     break;
                 case (1):
                     animator.Play("idleLeft");
                     break;
             }
-
+                
         }
+        print(curDir + " not moving: " + curIsMoving);
     }
 }

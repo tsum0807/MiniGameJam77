@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Monster
   - Transparent
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Objects
   - Monster
-  - 
+  - AfterObject
   - 
   - 
   - 
