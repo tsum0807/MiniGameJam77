@@ -49,6 +49,8 @@ public class AnimationController : MonoBehaviour
 
         if (curIsFeared)
         {
+            //AudioManager.AM.PlayScreamSound();
+            //AudioManager.AM.PlayRunSound();
             // fear run
             switch (curDir)
             {
@@ -68,6 +70,7 @@ public class AnimationController : MonoBehaviour
         }
         else if (curIsMoving)
         {
+            //AudioManager.AM.PlayWalkSound();
             // walk
             switch (curDir)
             {

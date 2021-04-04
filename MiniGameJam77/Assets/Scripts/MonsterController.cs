@@ -55,6 +55,8 @@ public class MonsterController : MonoBehaviour
         {
             // Hit player so playyer takes damage
             collider.GetComponent<PlayerController>().ChangeHealth(-1f);
+            // Play attack sound
+            AudioManager.AM.PlayAttackSound();
             // Jump
             Jump();
         }
@@ -142,7 +144,8 @@ public class MonsterController : MonoBehaviour
     public void TakeDamage(){
         curHealth--;
         PlayHurtAnim();
-        if(curHealth <= 0){
+        AudioManager.AM.PlayEnemyHurtSound();
+        if (curHealth <= 0){
             // Die
             gameObject.SetActive(false);
         }

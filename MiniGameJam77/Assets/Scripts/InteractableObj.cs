@@ -49,6 +49,7 @@ public class InteractableObj : MonoBehaviour{
         // Give item if is an item
         if (isItem)
         {
+            AudioManager.AM.PlayPowerUpSound();
             playerInventory.AddToInventory(gameObject.name);
             UIManager.UI.InsertInventoryBar(gameObject.name, sr.sprite);
         }

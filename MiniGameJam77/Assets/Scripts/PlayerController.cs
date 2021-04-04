@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
         UIManager.UI.UpdateHealthBar(curHealth);
         UIManager.UI.UpdateCourageBar(curCourage);
         UIManager.UI.UpdateBatteryBar(curBattery);
+
+        AudioManager.AM.PlayAmbience();
     }
 
     void Update(){
@@ -109,7 +111,8 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(float amt){
         curHealth += amt;
-        if(curHealth > maxHealth){
+        AudioManager.AM.PlayPlayerHurtSound();
+        if (curHealth > maxHealth){
             curHealth = maxHealth;
         }else if(curHealth <= 0){
             curHealth = 0;
@@ -130,6 +133,8 @@ public class PlayerController : MonoBehaviour
         // run out of courage
         if(curCourage <= 0)
         {
+            AudioManager.AM.PlayRunSound();
+            AudioManager.AM.PlayScreamSound();
             isFeared = true;
             FearRun();
         }
