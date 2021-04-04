@@ -51,6 +51,7 @@ public class FieldOfView : MonoBehaviour
             if(playerController.GetCurBattery() <= 0){
                 // Unfocus when out of batttery
                 isFocused = false;
+                SetMode(0);
             }
         }
     }
@@ -156,16 +157,35 @@ public class FieldOfView : MonoBehaviour
 
     public void SwitchMode(){
         isFocused = !isFocused;
-        if(!isFocused){
+        if(!isFocused)
+        {
             // Normal wide mode
-            SetFOV(normalFOV);
-            SetnormalViewDistance(normalViewDistance);
-        }else if(playerController.GetCurBattery() > 0){
+            SetMode(0);
+        }else if(playerController.GetCurBattery() > 0)
+        {
             // Focused mode if player has battery
-            SetFOV(focusedFOV);
-            SetnormalViewDistance(focusedViewDistance);
+            SetMode(1);
         }
         numRay = (int)_fov;
+    }
+
+    // 0 - normal
+    // 1 - focused
+    private void SetMode(int mode)
+    {
+        switch (mode)
+        {
+            case 0:
+                // Normal wide mode
+                SetFOV(normalFOV);
+                SetnormalViewDistance(normalViewDistance);
+                break;
+            case 1:
+                // Focused mode if player has battery
+                SetFOV(focusedFOV);
+                SetnormalViewDistance(focusedViewDistance);
+                break;
+        }
     }
 
     public void SetFOV(float newFOV){

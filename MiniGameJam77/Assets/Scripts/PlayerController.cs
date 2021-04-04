@@ -11,15 +11,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxCourage;
     [SerializeField] private float maxBattery;
 
+    [Header ("Fear stuff")]
+    [SerializeField] private float courageRefillPerSec;
+    [SerializeField] private float courageThreshold;
+
     private float curHealth;
     private float curCourage;
     private float curBattery;
+    private Vector2 fearRunningDir;
 
     private Rigidbody2D rigidBody;
     private GameObject darkness;
     private Inventory inventory;
 
     public bool isMoving = false;
+    public bool isFeared = false;
     public int facingDir = 0;
     // 0 - down
     // 1 - left
@@ -48,10 +54,13 @@ public class PlayerController : MonoBehaviour
         // Movement
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-        
+
         // Pass horizontal and vertical directions
-        Move(h, v);
-        isMoving = (h == 0 && v == 0) ? false : true;
+        if (!isFeared)
+        {
+            Move(h, v);
+            isMoving = (h == 0 && v == 0) ? false : true;
+        }
         //CalculateDir(h, v);
 
         // Aim
@@ -65,7 +74,19 @@ public class PlayerController : MonoBehaviour
             fov.SwitchMode();
         }
 
-        // Interact, done in player detector
+        if (isFeared)
+        {
+            //Move in fear
+            Move(fearRunningDir.x, fearRunningDir.y);
+
+            // Courage fill back up while feared
+            ChangeCourage(courageRefillPerSec * Time.deltaTime);
+            // Stop being feared 
+            if(curCourage >= courageThreshold)
+            {
+                isFeared = false;
+            }
+        }
 
         // Debug
         if(Input.GetButtonDown("Debug Reset")){
@@ -95,6 +116,13 @@ public class PlayerController : MonoBehaviour
             curCourage = 0;
         }
         UIManager.UI.UpdateCourageBar(curCourage);
+
+        // run out of courage
+        if(curCourage <= 0)
+        {
+            isFeared = true;
+            FearRun();
+        }
     }
 
     public void ChangeBattery(float amt){
@@ -117,6 +145,16 @@ public class PlayerController : MonoBehaviour
         velocity.y = speed * v * Time.deltaTime;
 
         rigidBody.velocity = velocity;
+    }
+
+    private void FearRun()
+    {
+        float randH = Random.Range(-1f, 1f);
+        float randV = Random.Range(-1f, 1f);
+
+        fearRunningDir = new Vector2(randH, randV);
+
+        Move(randH, randV);
     }
 
     private void FacePosition(Vector3 mousePos){

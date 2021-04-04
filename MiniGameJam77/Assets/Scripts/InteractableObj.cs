@@ -9,10 +9,12 @@ public class InteractableObj : MonoBehaviour{
 
     [Header("Requirement Settings")]
     [SerializeField] private bool isItem;
+    [SerializeField] private bool isNote;
     [SerializeField] private string itemRequired;
     [SerializeField] private bool itemGetsUsed;
 
     private GameObject player;
+    private bool noteActive;
 
     enum STATE{
         Normal,
@@ -24,10 +26,17 @@ public class InteractableObj : MonoBehaviour{
     void Start(){
         player = GameObject.Find("Player");
         state = STATE.Normal;
+        noteActive = false;
     }
 
-    void Update(){
-        
+    void Update()
+    {
+        // Close note if clicked on screen
+        if (noteActive && Input.GetMouseButtonDown(0))
+        {
+            transform.Find("NoteCanvas").gameObject.SetActive(false);
+            noteActive = false;
+        }
     }
 
     public bool Interact(){
@@ -39,6 +48,16 @@ public class InteractableObj : MonoBehaviour{
         {
             playerInventory.AddToInventory(gameObject.name);
             UIManager.UI.InsertInventoryBar(gameObject.name, sr.sprite);
+        }
+
+        // Show note if note
+        if (isNote && !noteActive)
+        {
+            // Show note
+            transform.Find("NoteCanvas").gameObject.SetActive(true);
+            noteActive = true;
+            // because notes should just stay there and not disappear
+            return false;
         }
 
         if(itemRequired != "")

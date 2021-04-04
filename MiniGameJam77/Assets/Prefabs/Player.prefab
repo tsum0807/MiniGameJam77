@@ -354,7 +354,10 @@ MonoBehaviour:
   maxHealth: 10
   maxCourage: 100
   maxBattery: 100
+  courageRefillPerSec: 20
+  courageThreshold: 50
   isMoving: 0
+  isFeared: 0
   facingDir: 0
 --- !u!114 &3544533306031208222
 MonoBehaviour:

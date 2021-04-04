@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa6e096ea089c74ba7ab1a1d3a34ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  batteryUsagePerSec: 0
   normalFOV: 70
   normalViewDistance: 2
   focusedFOV: 30
@@ -99,7 +100,16 @@ MonoBehaviour:
   numRay: 100
   IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 2304
-  IgnoreLayersWithMonster:
+    m_Bits: 35072
+  MonsterLayer:
     serializedVersion: 2
-    m_Bits: 11008
+    m_Bits: 0
+  BehindMaskLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  ObjectLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  AfterObjectLayer:
+    serializedVersion: 2
+    m_Bits: 0

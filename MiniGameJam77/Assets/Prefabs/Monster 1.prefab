@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8595964213333354769}
   - component: {fileID: 7420591361843961944}
   - component: {fileID: 4974923350418984221}
-  m_Layer: 13
+  m_Layer: 9
   m_Name: FearRange
-  m_TagString: Untagged
+  m_TagString: Transparent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,9 +132,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -577100321
+  m_SortingLayer: 1
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: cd30eb220bac92e47a3972388b1fff5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   landingIndicator: {fileID: 21300000, guid: 02f941eccef6a394d8b389e3a58ec439, type: 3}
   monsterSprite: {fileID: 21300000, guid: cd30eb220bac92e47a3972388b1fff5a, type: 3}
   maxHealth: 3
-  speed: 3
+  speed: 2.5
   jumpTime: 5
   landingTime: 2
 --- !u!50 &742081097

@@ -9,7 +9,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private Sprite monsterSprite;
 
     [SerializeField] private int maxHealth;
-    [SerializeField] private int speed;
+    [SerializeField] private float speed;
     [SerializeField] private float jumpTime;
     [SerializeField] private float landingTime;
 
@@ -17,10 +17,11 @@ public class MonsterController : MonoBehaviour
     private int curHealth;
     private float curJumpTime;
     private float curLandingTime;
+    private float curSpeed;
     private STATE state;
 
     private SpriteRenderer spriteRenderer;
-    private CapsuleCollider2D collider;
+    private CapsuleCollider2D _collider;
 
     enum STATE{
         Walking,
@@ -30,13 +31,14 @@ public class MonsterController : MonoBehaviour
 
     void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<CapsuleCollider2D>();
+        _collider = GetComponent<CapsuleCollider2D>();
     }
 
     void Start(){
         // Find player obj
         player = GameObject.Find("Player");
         curHealth = maxHealth;
+        curSpeed = speed;
         curJumpTime = jumpTime;
         curLandingTime = landingTime;
         state = STATE.Walking;
@@ -48,7 +50,22 @@ public class MonsterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision.collider.name);
+        Collider2D collider = collision.collider;
+        if(collider.tag == "Player")
+        {
+            // Hit player so playyer takes damage
+            collider.GetComponent<PlayerController>().ChangeHealth(-1f);
+            // Jump
+            Jump();
+        }
+        //if(collider.tag == "Untagged" || collider.tag == "Object")
+        //{
+        //    // ignore collision with these if jumping
+        //    if(state == STATE.Jumping)
+        //    {
+        //        Physics2D.IgnoreCollision(collision.collider, _collider);
+        //    }
+        //}
     }
 
     private void HandleStates(){
@@ -88,9 +105,13 @@ public class MonsterController : MonoBehaviour
             // Land
             spriteRenderer.enabled = true;
             spriteRenderer.sprite = monsterSprite;
-            collider.enabled = true;
+            _collider.enabled = true;
             // Set scale to normal
             transform.localScale = new Vector3(1f, 1f, 1f);
+            // Set speed to normal
+            curSpeed = speed;
+            // Set layer to normal
+            gameObject.layer = LayerMask.NameToLayer("Monster");
         }
     }
 
@@ -112,7 +133,7 @@ public class MonsterController : MonoBehaviour
 
 
     private void MoveTowardsObj(GameObject target){
-        float step = speed * Time.deltaTime;
+        float step = curSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, step);
     }
 
@@ -123,16 +144,22 @@ public class MonsterController : MonoBehaviour
             // Die
             
         }
+        Jump();
+    }
 
+    private void Jump()
+    {
         // "Jump" disappear from scene and reappear later
-        //spriteRenderer.enabled = false;
-        collider.enabled = false;
+        //_collider.enabled = false;
+        gameObject.layer = LayerMask.NameToLayer("MonsterJumping");
         // play some jump anim
         state = STATE.Jumping;
 
         // Show monster landing location indicator
-        //spriteRenderer.enabled = true;
         spriteRenderer.sprite = landingIndicator;
+
+        // Reduce speed while in mid jump
+        curSpeed = speed * 0.75f;
     }
 
     private void PlayHurtAnim(){
