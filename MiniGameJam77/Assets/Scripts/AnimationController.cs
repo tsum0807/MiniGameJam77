@@ -6,15 +6,15 @@ public class AnimationController : MonoBehaviour
 {
 
     private PlayerController objController;
-    private Animation animator;
+    private Animator animator;
 
     private int prevDir;
     private bool prevIsMoving;
 
     void Start()
     {
-        animator = GetComponent<Animation>();
-        print(animator.Animations);
+        animator = GetComponent<Animator>();
+        //print(animator.GetClipCount());
         // get player, else get monster
         if((objController = GetComponent<PlayerController>()) == null)
         {
@@ -61,6 +61,12 @@ public class AnimationController : MonoBehaviour
                     break;
                 case (1):
                     animator.Play("idleLeft");
+                    break;
+                case (2):
+                    animator.Play("idleUp");
+                    break;
+                case (3):
+                    animator.Play("idleRight");
                     break;
             }
                 
