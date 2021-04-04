@@ -82,6 +82,7 @@ public class UIManager : MonoBehaviour{
 	{
 		for(int i=0; i<dialogue.Length; i++)
 		{
+			// turn new lines into actual newlines
 			dialogue[i] = dialogue[i].Replace("\\n", "\n");
 		}
 		dialogueBox.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = dialogue[0];

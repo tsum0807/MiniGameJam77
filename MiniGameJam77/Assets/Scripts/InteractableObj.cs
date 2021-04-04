@@ -70,8 +70,14 @@ public class InteractableObj : MonoBehaviour{
             {
                 // Dont have required item
                 // Show indicator 
-                UIManager.UI.PlayDialogue("I need a " + itemRequired + ". There must be one around somewhere.");
-                print("dont have item: " + itemRequired);
+                if (itemRequired == "PowerOn")
+                {
+                    UIManager.UI.PlayDialogue("The door to the next section isn’t powered with batteries. The power core will need to be repaired before it will open.");
+                }
+                else
+                {
+                    UIManager.UI.PlayDialogue("I need a " + itemRequired + ". There must be one around somewhere.");
+                }
                 return false;
             }else if (itemGetsUsed)
             {
