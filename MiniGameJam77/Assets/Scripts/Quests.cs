@@ -24,6 +24,7 @@ public class Quests : MonoBehaviour
 
     private void ManageState()
     {
+        // Needs to happen when player has completed an action
         /*var nextStates = state.GetNextStates();
         for (int index = 0; index < nextStates.Length; index++)
         {
@@ -31,7 +32,7 @@ public class Quests : MonoBehaviour
             {
                 state = nextStates[index];
             }
-        }*/
-        textComponent.text = state.GetStateStory();
+        }
+        textComponent.text = state.GetStateStory();*/
     }
 }
