@@ -147,13 +147,15 @@ public class MonsterController : MonoBehaviour
         Jump();
     }
 
-    private void Jump()
+    public void Jump()
     {
         // "Jump" disappear from scene and reappear later
         //_collider.enabled = false;
         gameObject.layer = LayerMask.NameToLayer("MonsterJumping");
         // play some jump anim
         state = STATE.Jumping;
+        curJumpTime = jumpTime;
+        curLandingTime= landingTime;
 
         // Show monster landing location indicator
         spriteRenderer.sprite = landingIndicator;

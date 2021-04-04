@@ -11,6 +11,8 @@ public class InteractableObj : MonoBehaviour{
     [SerializeField] private bool isItem;
     [SerializeField] private bool isNote;
     [SerializeField] private bool isQuestTrigger;
+    [SerializeField] private bool hasDialogue;
+    [SerializeField] private string[] dialogue;
     [SerializeField] private string itemRequired;
     [SerializeField] private bool itemGetsUsed;
 
@@ -61,12 +63,14 @@ public class InteractableObj : MonoBehaviour{
             return false;
         }
 
-        if(itemRequired != "")
+
+        if (itemRequired != "")
         {
             if (!playerInventory.HaveItem(itemRequired))
             {
                 // Dont have required item
                 // Show indicator 
+                UIManager.UI.PlayDialogue("I need a " + itemRequired + ". There must be one around somewhere.");
                 print("dont have item: " + itemRequired);
                 return false;
             }else if (itemGetsUsed)
@@ -75,7 +79,15 @@ public class InteractableObj : MonoBehaviour{
             }
         }
 
-        state = STATE.Interacted;
+        // Dialogue shows with the given dialogue text
+        if (hasDialogue)
+        {
+            UIManager.UI.PlayDialogue(dialogue);
+        }
+        else
+        {
+            state = STATE.Interacted;
+        }
 
         // Change sprite if exists
         if (sprites.Length > 1){
@@ -97,7 +109,10 @@ public class InteractableObj : MonoBehaviour{
         if(isQuestTrigger)
         {
             Quests.QUEST.NextQuest();
+            // make sure cant trigger off same thing
+            isQuestTrigger = false;
         }
+
         return true;
     }
 

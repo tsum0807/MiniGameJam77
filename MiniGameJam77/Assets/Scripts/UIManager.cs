@@ -12,6 +12,13 @@ public class UIManager : MonoBehaviour{
 	[SerializeField] private GameObject courageBar;
 	[SerializeField] private GameObject batteryBar;
 	[SerializeField] private GameObject inventoryBar;
+	[SerializeField] private GameObject dialogueBox;
+	[SerializeField] private GameObject dialogueText;
+
+	private bool isInDialogue = false;
+	private string[] _dialogues;
+	private int curDialogue = 0;
+
 
 	void Awake(){
 		if(UI != null){
@@ -26,10 +33,24 @@ public class UIManager : MonoBehaviour{
 		courageBar = GameObject.Find("Canvas/CourageBar");
 		batteryBar = GameObject.Find("Canvas/BatteryBar");
 		inventoryBar = GameObject.Find("Canvas/InventoryBar");
+		//dialogueBox = GameObject.Find("Canvas/DialogueBox");
 	}
 
 	void Update(){
-		
+        if (isInDialogue && Input.GetMouseButtonDown(0))
+        {
+			// Next dialogue
+			curDialogue++;
+			if (curDialogue < _dialogues.Length)
+			{
+				dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = _dialogues[curDialogue];
+			}
+			else
+			{
+				isInDialogue = false;
+				dialogueBox.SetActive(false);
+			}
+        }
 	}
 
 	public void UpdateHealthBar(float newAmt){
@@ -57,4 +78,22 @@ public class UIManager : MonoBehaviour{
 			Destroy(toRemove);
         }
     }
+	public void PlayDialogue(string[] dialogue)
+	{
+		for(int i=0; i<dialogue.Length; i++)
+		{
+			dialogue[i] = dialogue[i].Replace("\\n", "\n");
+		}
+		dialogueBox.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = dialogue[0];
+        dialogueBox.SetActive(true);
+		isInDialogue = true;
+		curDialogue = 0;
+		_dialogues = dialogue;
+	}
+	public void PlayDialogue(string dialogue)
+	{
+		string[] dialogues = new string[1];
+		dialogues[0] = dialogue;
+		PlayDialogue(dialogues);
+	}
 }

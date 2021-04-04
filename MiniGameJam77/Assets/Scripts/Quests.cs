@@ -12,6 +12,7 @@ public class Quests : MonoBehaviour
 
     private int curQuest = 0;
     private PlayerController playerController;
+    private MonsterController monsterController;
 
     void Awake()
     {
@@ -34,6 +35,7 @@ public class Quests : MonoBehaviour
             questText = GameObject.Find("Canvas/QuestContainer/QuestText").GetComponent<TMPro.TextMeshProUGUI>();
         }
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        monsterController = GameObject.Find("Monster").GetComponent<MonsterController>();
     }
 
     void Update()
@@ -49,12 +51,16 @@ public class Quests : MonoBehaviour
                 break;
             case 1:
                 questText.text = "Find the power room.";
+                // Spawn Monster
+                monsterController.gameObject.SetActive(true);
                 break;
             case 2:
                 questText.text = "Find a fuse.";
+                monsterController.Jump();
                 break;
             case 3:
                 questText.text = "Install the fuse in the power room.";
+                monsterController.Jump();
                 break;
             case 4:
                 // Fused installed so turn on the lights

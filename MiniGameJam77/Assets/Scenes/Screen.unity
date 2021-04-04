@@ -121,6 +121,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &19585394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 454731125685930207, guid: 53954dbbcaf896b45b611b8ea5624f93,
+    type: 3}
+  m_PrefabInstance: {fileID: 1276948523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &19585395 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+    type: 3}
+  m_PrefabInstance: {fileID: 1276948523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &19585396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19585394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e207857dae273df4cab454caf2dd2b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &34550560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,7 +340,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -411,6 +435,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53954dbbcaf896b45b611b8ea5624f93, type: 3}
+--- !u!1 &102647014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102647017}
+  - component: {fileID: 102647016}
+  - component: {fileID: 102647015}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &102647015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102647014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &102647016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102647014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &102647017
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102647014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &113676871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -421,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -574,6 +664,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &133640869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133640869, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 706722230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &134227957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1856,7 +1952,7 @@ PrefabInstance:
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6863608654632590544, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
@@ -1953,6 +2049,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccd4300bda32d34b8c09c0b226231b9, type: 3}
+--- !u!1 &608696981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 608696981, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
+    type: 3}
+  m_PrefabInstance: {fileID: 706722230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &627419857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1161846870858569510, guid: 0a22b8901fd7f2b4ba702b21f08e4875,
@@ -12743,11 +12845,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4310960942845429258, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -12756,11 +12853,6 @@ PrefabInstance:
     - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4310960943779383038, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4310960944456643101, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
@@ -12782,11 +12874,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329082199217258709, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
-        type: 3}
-      propertyPath: m_Name
-      value: QuestText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b2a748fa09a58a44b127a5ebdbb78f1, type: 3}
@@ -12884,17 +12971,17 @@ PrefabInstance:
     - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
@@ -12949,16 +13036,20 @@ PrefabInstance:
     - target: {fileID: 7700312716951847559, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
       propertyPath: m_text
-      value: "If you are reading this, I pity you. It would have been better if you
-        had remained asleep, but the Bounty\u2019s systems will start shedding power
-        at some point in the next few days. I have left a rechargeable flashlight
-        so you can at least see what\u2019s going on.\r\n\r\nI will lock the door
-        and leave the keycard with Lieutenant Rogers, so that you do not accidentally
-        open the door until it is safe to do so. I am not sure what is going on,
-        just that there is some kind of creature on the other side of the door. Something
-        dangerous. All you can do now is to stay inside and hope that I have succeeded
-        in making it to the hangar and that help is therefore on the way.\r\n\r\nGood
-        luck.\r\n\r\nShip Engineer Erol of the Bounty, Mokse Corp."
+      value: "I wish I could get just a drop of water on my tongue again. Or something
+        to eat. Even those disgusting crackers in the ration packs. There\u2019s
+        still a ton of it in the kitchens, I\u2019m sure of it. But that thing is
+        out there. I can\u2019t leave this room. \r\n\r\nErol gave me the keycard
+        to the cryo chamber so I can open it after I replace the fuse in the power
+        core and get the lights back on. He said the lights will chase the monster
+        out of the area. I can\u2019t believe it managed to short the whole system
+        like that. I can\u2019t help but think it cut out the power on purpose to
+        turn off the lights. But I don\u2019t want to think about that.\r\n\r\nIt\u2019s
+        too much. I can\u2019t do it. I can\u2019t fix the power. So I\u2019ve just
+        come into the cryo chamber to hide from that thing. It\u2019s killed everyone
+        else, and probably Erol too. I\u2019m never leaving this room. Not even if
+        I die of thirst and hunger. \r\n\r\nIf any of the sleepers wake up and find
+        this, I hope you stay here. If you go outside, you\u2019ll die.\r"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d16f70d418087f14fae42ef3ff922c41, type: 3}
@@ -13093,6 +13184,16 @@ PrefabInstance:
       objectReference: {fileID: 281038090}
     - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
         type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 133640869}
+    - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
+        type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 608696981}
+    - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
+        type: 3}
       propertyPath: inventoryBar
       value: 
       objectReference: {fileID: 366964536}
@@ -13217,7 +13318,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -13451,12 +13552,12 @@ PrefabInstance:
     - target: {fileID: 6125404155473924826, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
       propertyPath: m_Name
-      value: Monster 1
+      value: Monster
       objectReference: {fileID: 0}
     - target: {fileID: 6125404155473924826, guid: d402afd247c7d4540854e835610a58f4,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d402afd247c7d4540854e835610a58f4, type: 3}
@@ -15724,6 +15825,159 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30624bd3ed55d94a8c54fc9bdb8f385, type: 3}
+--- !u!1001 &1276948523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1401625162}
+    m_Modifications:
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930205, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3486ac7d662ae24fb34ff86fcf1ec2a,
+        type: 3}
+    - target: {fileID: 454731125685930205, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930205, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930205, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: isItem
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: isNote
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue
+      value: "This person is no longer breathing. There doesn\u2019t appear to be
+        any obvious cause of death, other than that they seem ill. He has a name
+        tag that reads \u201CRogers\u201D. There is a small journal clutched in his
+        one hand."
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: hasDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: isQuestTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: d3486ac7d662ae24fb34ff86fcf1ec2a,
+        type: 3}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: d3486ac7d662ae24fb34ff86fcf1ec2a,
+        type: 3}
+    - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: "This person is no longer breathing. There doesn\u2019t appear to be
+        any obvious cause of death, other than that they seem ill. He has a name
+        tag that reads \u201CRogers\u201D. There is a small journal clutched in his
+        one hand."
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731125685930207, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_Name
+      value: Corpse
+      objectReference: {fileID: 0}
+    - target: {fileID: 454731126705460450, guid: 53954dbbcaf896b45b611b8ea5624f93,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53954dbbcaf896b45b611b8ea5624f93, type: 3}
 --- !u!1001 &1288316462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15734,7 +15988,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930204, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -16208,6 +16462,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1908067964}
+  - {fileID: 19585395}
   - {fileID: 1675952098}
   - {fileID: 1197445748}
   - {fileID: 201793832}
@@ -16215,6 +16470,7 @@ Transform:
   - {fileID: 950519416}
   - {fileID: 1417568132}
   - {fileID: 287475054}
+  - {fileID: 1582457302}
   m_Father: {fileID: 126593527}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16316,6 +16572,136 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30624bd3ed55d94a8c54fc9bdb8f385, type: 3}
+--- !u!1001 &1582457301
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1401625162}
+    m_Modifications:
+    - target: {fileID: 3498243776363919915, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581384, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a137214ea31c2f34197882d96413de8b,
+        type: 3}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581386, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_Name
+      value: Poster1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: isNote
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: hasDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: "\"CAUTION\\n\\nDon\u2019t disturb the cryo pods. No one wants a rude
+        awakening!\\n\\nMokse Corp.\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226493028061175, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700312716951847559, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_text
+      value: "I wish I could get just a drop of water on my tongue again. Or something
+        to eat. Even those disgusting crackers in the ration packs. There\u2019s
+        still a ton of it in the kitchens, I\u2019m sure of it. But that thing is
+        out there. I can\u2019t leave this room. \r\n\r\nErol gave me the keycard
+        to the cryo chamber so I can open it after I replace the fuse in the power
+        core and get the lights back on. He said the lights will chase the monster
+        out of the area. I can\u2019t believe it managed to short the whole system
+        like that. I can\u2019t help but think it cut out the power on purpose to
+        turn off the lights. But I don\u2019t want to think about that.\r\n\r\nIt\u2019s
+        too much. I can\u2019t do it. I can\u2019t fix the power. So I\u2019ve just
+        come into the cryo chamber to hide from that thing. It\u2019s killed everyone
+        else, and probably Erol too. I\u2019m never leaving this room. Not even if
+        I die of thirst and hunger. \r\n\r\nIf any of the sleepers wake up and find
+        this, I hope you stay here. If you go outside, you\u2019ll die.\r"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d16f70d418087f14fae42ef3ff922c41, type: 3}
+--- !u!4 &1582457302 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+    type: 3}
+  m_PrefabInstance: {fileID: 1582457301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1592887537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 357721506835112844, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
@@ -20498,11 +20884,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1097347641323091530, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
-        type: 3}
-      propertyPath: IgnoreLayers.m_Bits
-      value: 51456
-      objectReference: {fileID: 0}
     - target: {fileID: 1097347642516771206, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
         type: 3}
       propertyPath: m_Name
@@ -20562,6 +20943,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119108582242173600, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119108582242173600, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e368a0f1e88fc64db6c621b5f50de6f, type: 3}
@@ -21114,7 +21505,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: isQuestTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930207, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -24443,7 +24834,7 @@ PrefabInstance:
     - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
         type: 3}
