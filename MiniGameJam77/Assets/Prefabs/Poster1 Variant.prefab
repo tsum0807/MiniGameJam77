@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1181971410252147992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3498243776363919915, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581384, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a137214ea31c2f34197882d96413de8b,
+        type: 3}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581385, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581386, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_Name
+      value: Poster1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: isNote
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: hasDialogue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226491899581387, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: "\"CAUTION\\n\\nDon\u2019t disturb the cryo pods. No one wants a rude
+        awakening!\\n\\nMokse Corp.\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 3738226493028061175, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700312716951847559, guid: d16f70d418087f14fae42ef3ff922c41,
+        type: 3}
+      propertyPath: m_text
+      value: "I wish I could get just a drop of water on my tongue again. Or something
+        to eat. Even those disgusting crackers in the ration packs. There\u2019s
+        still a ton of it in the kitchens, I\u2019m sure of it. But that thing is
+        out there. I can\u2019t leave this room. \r\n\r\nErol gave me the keycard
+        to the cryo chamber so I can open it after I replace the fuse in the power
+        core and get the lights back on. He said the lights will chase the monster
+        out of the area. I can\u2019t believe it managed to short the whole system
+        like that. I can\u2019t help but think it cut out the power on purpose to
+        turn off the lights. But I don\u2019t want to think about that.\r\n\r\nIt\u2019s
+        too much. I can\u2019t do it. I can\u2019t fix the power. So I\u2019ve just
+        come into the cryo chamber to hide from that thing. It\u2019s killed everyone
+        else, and probably Erol too. I\u2019m never leaving this room. Not even if
+        I die of thirst and hunger. \r\n\r\nIf any of the sleepers wake up and find
+        this, I hope you stay here. If you go outside, you\u2019ll die.\r"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d16f70d418087f14fae42ef3ff922c41, type: 3}

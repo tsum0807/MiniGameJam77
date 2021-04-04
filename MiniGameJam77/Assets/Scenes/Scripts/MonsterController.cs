@@ -55,6 +55,8 @@ public class MonsterController : MonoBehaviour
         {
             // Hit player so playyer takes damage
             collider.GetComponent<PlayerController>().ChangeHealth(-1f);
+            // Play attack sound
+            AudioManager.AM.PlayAttackSound();
             // Jump
             Jump();
         }
@@ -112,6 +114,8 @@ public class MonsterController : MonoBehaviour
             curSpeed = speed;
             // Set layer to normal
             gameObject.layer = LayerMask.NameToLayer("Monster");
+            // Give back fear
+            gameObject.GetComponentInChildren<FearCircle>().canFear = true;
         }
     }
 
@@ -140,26 +144,31 @@ public class MonsterController : MonoBehaviour
     public void TakeDamage(){
         curHealth--;
         PlayHurtAnim();
-        if(curHealth <= 0){
+        AudioManager.AM.PlayEnemyHurtSound();
+        if (curHealth <= 0){
             // Die
             gameObject.SetActive(false);
         }
         Jump();
     }
 
-    private void Jump()
+    public void Jump()
     {
         // "Jump" disappear from scene and reappear later
         //_collider.enabled = false;
         gameObject.layer = LayerMask.NameToLayer("MonsterJumping");
         // play some jump anim
         state = STATE.Jumping;
+        curJumpTime = jumpTime;
+        curLandingTime= landingTime;
+        // cant fear while jumping
+        gameObject.GetComponentInChildren<FearCircle>().canFear = false;
 
         // Show monster landing location indicator
         spriteRenderer.sprite = landingIndicator;
 
         // Reduce speed while in mid jump
-        curSpeed = speed * 0.75f;
+        curSpeed = speed * 0.5f;
     }
 
     private void PlayHurtAnim(){

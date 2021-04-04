@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     // 2 - up
     // 3 - right
 
+
     void Start(){
         rigidBody = GetComponent<Rigidbody2D>();
         inventory = GetComponent<Inventory>();
@@ -48,6 +49,9 @@ public class PlayerController : MonoBehaviour
         UIManager.UI.UpdateHealthBar(curHealth);
         UIManager.UI.UpdateCourageBar(curCourage);
         UIManager.UI.UpdateBatteryBar(curBattery);
+
+        PlayIntroCutscene();
+        //AudioManager.AM.PlayAmbience();
     }
 
     void Update(){
@@ -55,6 +59,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleInput(){
+        // Cant do anything while in dialogue
+        if (UIManager.UI.isInDialogue)
+        {
+            return;
+        }
         // Movement
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -103,11 +112,14 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHealth(float amt){
         curHealth += amt;
-        if(curHealth > maxHealth){
+        AudioManager.AM.PlayPlayerHurtSound();
+        if (curHealth > maxHealth){
             curHealth = maxHealth;
         }else if(curHealth <= 0){
             curHealth = 0;
             // Die
+            AudioManager.AM.PlayScreamSound();
+            UIManager.UI.Lose();
         }
         UIManager.UI.UpdateHealthBar(curHealth);
     }
@@ -124,6 +136,8 @@ public class PlayerController : MonoBehaviour
         // run out of courage
         if(curCourage <= 0)
         {
+            AudioManager.AM.PlayRunSound();
+            AudioManager.AM.PlayScreamSound();
             isFeared = true;
             FearRun();
         }
@@ -143,6 +157,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Move(float h, float v){
+        //print("moving " + h + " " + v);
         // Apply movement to velocity
         Vector2 velocity = new Vector2();
         velocity.x = speed * h * Time.deltaTime;
@@ -171,37 +186,6 @@ public class PlayerController : MonoBehaviour
 
         fov.AimAtAngle(theta);
     }
-
-    //private void calculatedir(float h, float v)
-    //{
-    //    if (h == 0 && v == 0)
-    //    {
-    //        ismoving = false;
-    //        return;
-    //    }
-    //    ismoving = true;
-    //    if (h > 0)
-    //    {
-    //        right
-    //       facingdir = 3;
-    //    }
-    //    else if (h < 0)
-    //    {
-    //        left
-    //       facingdir = 1;
-    //    }
-
-    //    if (v > 0)
-    //    {
-    //        up
-    //       facingdir = 2;
-    //    }
-    //    else if (v < 0)
-    //    {
-    //        down
-    //       facingdir = 0;
-    //    }
-    //}
 
     private void CalculateDir(Vector3 mousePos)
     {
@@ -242,4 +226,39 @@ public class PlayerController : MonoBehaviour
         darkness.SetActive(false);
     }
 
+    private void PlayIntroCutscene()
+    {
+        string[] dialogues = new string[3];
+        dialogues[0] = "<coughing> (Urgh, my head is killing me. Where am I?)";
+        dialogues[1] = "(The cryo chamber. Right. What’s going on? Why is it so dark?)";
+        dialogues[2] = "(Why isn’t anyone else awake? Urgh. The computer must have woken me up too early. Typical Mokse Corp technology. The Captain’s going to answer for this.)";
+        UIManager.UI.PlayDialogue(dialogues);
+    }
+
+    public void MoveToTable()
+    {
+        Move(0.5f, -0.1f);
+        StartCoroutine(StopAfter(2f));
+    }
+
+    IEnumerator StopAfter(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        Move(0f, 0f);
+    }
+
+    public void PlayMonsterCutscene()
+    {
+        // Face forward (up)
+        FacePosition(transform.position + new Vector3(0, 1, 0));
+        StartCoroutine(DelayAction(0.3f));
+    }
+
+    IEnumerator DelayAction(float delayTime)
+    {
+        yield return new WaitForSeconds(1f);
+        Move(0f, -1f);
+        yield return new WaitForSeconds(delayTime);
+        Move(0f, 0f);
+    }
 }

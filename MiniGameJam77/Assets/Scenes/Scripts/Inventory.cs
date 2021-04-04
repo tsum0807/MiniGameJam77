@@ -33,8 +33,4 @@ public class Inventory : MonoBehaviour{
 		return false;
 	}
 
-	public void GetItem(string itemName, Sprite itemSprite)
-	{
-
-	}
 }

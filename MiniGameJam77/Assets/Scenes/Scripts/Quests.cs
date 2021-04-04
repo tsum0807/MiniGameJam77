@@ -12,6 +12,9 @@ public class Quests : MonoBehaviour
 
     private int curQuest = 0;
     private PlayerController playerController;
+    private MonsterController monsterController;
+    [SerializeField] private GameObject monster;
+    [SerializeField] private GameObject player;
 
     void Awake()
     {
@@ -33,7 +36,8 @@ public class Quests : MonoBehaviour
             // so try find it
             questText = GameObject.Find("Canvas/QuestContainer/QuestText").GetComponent<TMPro.TextMeshProUGUI>();
         }
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();
+        monsterController = monster.GetComponent<MonsterController>();
     }
 
     void Update()
@@ -48,17 +52,31 @@ public class Quests : MonoBehaviour
                 questText.text = "Investigate the area.";
                 break;
             case 1:
-                questText.text = "Find the power room.";
+                questText.text = "Open the red door.";
                 break;
             case 2:
-                questText.text = "Find a fuse.";
+                questText.text = "Find the power room.";
+                // Spawn Monster
+                monster.SetActive(true);
                 break;
             case 3:
-                questText.text = "Install the fuse in the power room.";
+                questText.text = "Find a fuse.";
+                monsterController.Jump();
                 break;
             case 4:
+                questText.text = "Install the fuse in the power room.";
+                monsterController.Jump();
+                break;
+            case 5:
                 // Fused installed so turn on the lights
                 playerController.LightsOn();
+                monster.SetActive(false);
+                // Give player "PowerOn"
+                player.GetComponent<Inventory>().AddToInventory("PowerOn");
+                break;
+            case 6:
+                // Win
+                UIManager.UI.Win();
                 break;
         }
     }

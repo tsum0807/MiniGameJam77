@@ -8,10 +8,23 @@ public class UIManager : MonoBehaviour{
 	// static reference to self
 	public static UIManager UI;
 
+	[Header("UI Objects")]
 	[SerializeField] private GameObject healthBar;
 	[SerializeField] private GameObject courageBar;
 	[SerializeField] private GameObject batteryBar;
 	[SerializeField] private GameObject inventoryBar;
+	[SerializeField] private GameObject noteObj;
+	[SerializeField] private GameObject noteText;
+	[SerializeField] private GameObject dialogueBox;
+	[SerializeField] private GameObject dialogueText;
+
+	[Header ("Objects")]
+	[SerializeField] private GameObject player;
+
+	public bool isInDialogue = false;
+	private string[] _dialogues;
+	private int curDialogue = 0;
+	private bool isIntro = true;
 
 	void Awake(){
 		if(UI != null){
@@ -26,10 +39,62 @@ public class UIManager : MonoBehaviour{
 		courageBar = GameObject.Find("Canvas/CourageBar");
 		batteryBar = GameObject.Find("Canvas/BatteryBar");
 		inventoryBar = GameObject.Find("Canvas/InventoryBar");
+		//dialogueBox = GameObject.Find("Canvas/DialogueBox");
 	}
 
 	void Update(){
-		
+        if (isInDialogue && Input.GetMouseButtonDown(0))
+        {
+			UpdateDialogue();
+        }
+	}
+
+	private void UpdateDialogue()
+    {
+		if (curDialogue < _dialogues.Length)
+		{
+			// Check for note indicator, if is play next one as note
+			if (_dialogues[curDialogue] == "Note")
+			{
+				// next dialogue should be shown as a note
+				curDialogue++;
+				dialogueBox.SetActive(false);
+				noteObj.SetActive(true);
+				noteText.GetComponent<TMPro.TextMeshProUGUI>().text = _dialogues[curDialogue];
+			}
+			else if (_dialogues[curDialogue] == "!")
+			{
+				// Show the mosnter cutscene, how good is this code :)
+				player.GetComponent<PlayerController>().PlayMonsterCutscene();
+				noteObj.SetActive(false);
+				dialogueBox.SetActive(true);
+				dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = _dialogues[curDialogue];
+			}
+			else
+			{
+				noteObj.SetActive(false);
+				dialogueBox.SetActive(true);
+				dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = _dialogues[curDialogue];
+			}
+		}
+		else
+		{
+			if (isIntro)
+			{
+				player.GetComponent<PlayerController>().MoveToTable();
+				dialogueBox.SetActive(false);
+				isIntro = false;
+			}
+			else
+			{
+				isIntro = false;
+				isInDialogue = false;
+				dialogueBox.SetActive(false);
+				noteObj.SetActive(false);
+			}
+		}
+		// Next dialogue
+		curDialogue++;
 	}
 
 	public void UpdateHealthBar(float newAmt){
@@ -56,5 +121,33 @@ public class UIManager : MonoBehaviour{
         {
 			Destroy(toRemove);
         }
+    }
+	public void PlayDialogue(string[] dialogue)
+	{
+		for(int i=0; i<dialogue.Length; i++)
+		{
+			// turn new lines into actual newlines
+			dialogue[i] = dialogue[i].Replace("\\n", "\n");
+		}
+		isInDialogue = true;
+		curDialogue = 0;
+		_dialogues = dialogue;
+		UpdateDialogue();
+	}
+	public void PlayDialogue(string dialogue)
+	{
+		string[] dialogues = new string[1];
+		dialogues[0] = dialogue;
+		PlayDialogue(dialogues);
+	}
+
+	public void Win()
+	{
+
+	}
+
+	public void Lose()
+    {
+
     }
 }

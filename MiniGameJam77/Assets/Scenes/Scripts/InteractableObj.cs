@@ -11,6 +11,8 @@ public class InteractableObj : MonoBehaviour{
     [SerializeField] private bool isItem;
     [SerializeField] private bool isNote;
     [SerializeField] private bool isQuestTrigger;
+    [SerializeField] private bool hasDialogue;
+    [SerializeField] private string[] dialogue;
     [SerializeField] private string itemRequired;
     [SerializeField] private bool itemGetsUsed;
 
@@ -47,6 +49,7 @@ public class InteractableObj : MonoBehaviour{
         // Give item if is an item
         if (isItem)
         {
+            AudioManager.AM.PlayPowerUpSound();
             playerInventory.AddToInventory(gameObject.name);
             UIManager.UI.InsertInventoryBar(gameObject.name, sr.sprite);
         }
@@ -61,13 +64,21 @@ public class InteractableObj : MonoBehaviour{
             return false;
         }
 
-        if(itemRequired != "")
+
+        if (itemRequired != "")
         {
             if (!playerInventory.HaveItem(itemRequired))
             {
                 // Dont have required item
                 // Show indicator 
-                print("dont have item: " + itemRequired);
+                if (itemRequired == "PowerOn")
+                {
+                    UIManager.UI.PlayDialogue("The door to the next section isn’t powered with batteries. The power core will need to be repaired before it will open.");
+                }
+                else
+                {
+                    UIManager.UI.PlayDialogue("I need a " + itemRequired + ". There must be one around somewhere.");
+                }
                 return false;
             }else if (itemGetsUsed)
             {
@@ -75,7 +86,15 @@ public class InteractableObj : MonoBehaviour{
             }
         }
 
-        state = STATE.Interacted;
+        // Dialogue shows with the given dialogue text
+        if (hasDialogue)
+        {
+            UIManager.UI.PlayDialogue(dialogue);
+        }
+        else
+        {
+            state = STATE.Interacted;
+        }
 
         // Change sprite if exists
         if (sprites.Length > 1){
@@ -97,7 +116,16 @@ public class InteractableObj : MonoBehaviour{
         if(isQuestTrigger)
         {
             Quests.QUEST.NextQuest();
+            // make sure cant trigger off same thing
+            isQuestTrigger = false;
         }
+
+        // Hardcoding red door here
+        if(gameObject.name == "RedDoor")
+        {
+            player.transform.position = transform.position;
+        }
+
         return true;
     }
 
