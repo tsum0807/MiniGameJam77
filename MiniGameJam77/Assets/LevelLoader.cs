@@ -7,11 +7,28 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator transition;
 
+    public Animator fadeInTransition;
+
+    public bool hasFadedIn = false;
+
     public float transitionTime = 1f;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     void Start()
     {
-            LoadNextLevel();
+        LoadNextLevel();
+    }
+
+    public void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Screen")
+        {
+            hasFadedIn = true;
+        }
     }
 
     public void LoadNextLevel()
@@ -21,8 +38,12 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        transition.SetTrigger("New Trigger");
+        transition.SetTrigger("Start");
+
         yield return new WaitForSeconds(transitionTime);
+      
         SceneManager.LoadScene(levelIndex);
+
+        //fadeInTransition.SetTrigger("Start");
     }
 }

@@ -837,6 +837,11 @@ PrefabInstance:
       propertyPath: transition
       value: 
       objectReference: {fileID: 1968759718}
+    - target: {fileID: 3284612936273986942, guid: 19b93ebdaefd72942afaee22beb45ecd,
+        type: 3}
+      propertyPath: transitionTime
+      value: 3.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3284612936273986943, guid: 19b93ebdaefd72942afaee22beb45ecd,
         type: 3}
       propertyPath: m_RootOrder
@@ -896,6 +901,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284612937952497585, guid: 19b93ebdaefd72942afaee22beb45ecd,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284612937952497585, guid: 19b93ebdaefd72942afaee22beb45ecd,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284612937952497585, guid: 19b93ebdaefd72942afaee22beb45ecd,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b93ebdaefd72942afaee22beb45ecd, type: 3}
