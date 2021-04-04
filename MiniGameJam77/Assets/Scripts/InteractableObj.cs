@@ -10,6 +10,7 @@ public class InteractableObj : MonoBehaviour{
     [Header("Requirement Settings")]
     [SerializeField] private bool isItem;
     [SerializeField] private bool isNote;
+    [SerializeField] private bool isQuestTrigger;
     [SerializeField] private string itemRequired;
     [SerializeField] private bool itemGetsUsed;
 
@@ -82,7 +83,6 @@ public class InteractableObj : MonoBehaviour{
         }else{
             // Disable object if no "disabled" sprite
             gameObject.SetActive(false);
-            return true;
         }
 
         // Disable any hitbox if exists
@@ -90,6 +90,13 @@ public class InteractableObj : MonoBehaviour{
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         if(collider != null){
             collider.enabled = false;
+        }
+
+        // Advance quest line if item is a trigger
+        //QuestTrigger trigger = GetComponent<QuestTrigger>();
+        if(isQuestTrigger)
+        {
+            Quests.QUEST.NextQuest();
         }
         return true;
     }

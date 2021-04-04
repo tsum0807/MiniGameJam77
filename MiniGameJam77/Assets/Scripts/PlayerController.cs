@@ -36,7 +36,11 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         inventory = GetComponent<Inventory>();
         fov = GetComponentInChildren<FieldOfView>();
+
         darkness = transform.Find("Darkness").gameObject;
+        darkness.SetActive(true);
+        GameObject canvas = GameObject.Find("Canvas");
+        canvas.SetActive(true);
 
         curHealth = maxHealth;
         curCourage = maxCourage;
@@ -231,6 +235,11 @@ public class PlayerController : MonoBehaviour
                 facingDir = 1;
             }
         }
+    }
+
+    public void LightsOn()
+    {
+        darkness.SetActive(false);
     }
 
 }

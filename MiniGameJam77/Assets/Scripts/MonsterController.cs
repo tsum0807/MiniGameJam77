@@ -142,7 +142,7 @@ public class MonsterController : MonoBehaviour
         PlayHurtAnim();
         if(curHealth <= 0){
             // Die
-            
+            gameObject.SetActive(false);
         }
         Jump();
     }

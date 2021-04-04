@@ -45,10 +45,45 @@ public class AnimationController : MonoBehaviour
     {
         int curDir = objController.facingDir;
         bool curIsMoving = objController.isMoving;
+        bool curIsFeared = objController.isFeared;
 
-        if (curIsMoving)
+        if (curIsFeared)
         {
-            // run
+            // fear run
+            switch (curDir)
+            {
+                case (0):
+                    animator.Play("runDown");
+                    break;
+                case (1):
+                    animator.Play("runLeft");
+                    break;
+                case (2):
+                    animator.Play("runUp");
+                    break;
+                case (3):
+                    animator.Play("runRight");
+                    break;
+            }
+        }
+        else if (curIsMoving)
+        {
+            // walk
+            switch (curDir)
+            {
+                case (0):
+                    animator.Play("walkDown");
+                    break;
+                case (1):
+                    animator.Play("walkLeft");
+                    break;
+                case (2):
+                    animator.Play("walkUp");
+                    break;
+                case (3):
+                    animator.Play("walkRight");
+                    break;
+            }
         }
         else
         {

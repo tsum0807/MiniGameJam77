@@ -5,34 +5,67 @@ using UnityEngine.UI;
 
 public class Quests : MonoBehaviour
 {
-    [SerializeField] Text textComponent;
-    [SerializeField] State startingState;
-    State state;
 
-    // Start is called before the first frame update
+    public static Quests QUEST;
+
+    [SerializeField] TMPro.TextMeshProUGUI questText;
+
+    private int curQuest = 0;
+    private PlayerController playerController;
+
+    void Awake()
+    {
+        if (QUEST != null)
+        {
+            Destroy(QUEST);
+        }
+        else
+        {
+            QUEST = this;
+        }
+    }
+
     void Start()
     {
-        state = startingState;
-        textComponent.text = state.GetStateStory();
+        if(questText == null)
+        {
+            // questText obj wasnt set
+            // so try find it
+            questText = GameObject.Find("Canvas/QuestContainer/QuestText").GetComponent<TMPro.TextMeshProUGUI>();
+        }
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        ManageState();
     }
 
-    private void ManageState()
+    private void UpdateQuestText()
     {
-        // Needs to happen when player has completed an action
-        /*var nextStates = state.GetNextStates();
-        for (int index = 0; index < nextStates.Length; index++)
+        switch (curQuest)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + index))
-            {
-                state = nextStates[index];
-            }
+            case 0:
+                questText.text = "Investigate the area.";
+                break;
+            case 1:
+                questText.text = "Find the power room.";
+                break;
+            case 2:
+                questText.text = "Find a fuse.";
+                break;
+            case 3:
+                questText.text = "Install the fuse in the power room.";
+                break;
+            case 4:
+                // Fused installed so turn on the lights
+                playerController.LightsOn();
+                break;
         }
-        textComponent.text = state.GetStateStory();*/
+    }
+
+    public void NextQuest()
+    {
+        curQuest++;
+        UpdateQuestText();
     }
 }
