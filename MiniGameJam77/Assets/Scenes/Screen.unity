@@ -392,7 +392,7 @@ PrefabInstance:
     - target: {fileID: 454731125685930206, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
       propertyPath: isQuestTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454731125685930207, guid: 53954dbbcaf896b45b611b8ea5624f93,
         type: 3}
@@ -1929,6 +1929,23 @@ PrefabInstance:
       propertyPath: isQuestTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -6923900727490736670, guid: 940198a854b9ca84782b56bebd6f6556,
+        type: 3}
+    - target: {fileID: 6863608654632590546, guid: 5ccd4300bda32d34b8c09c0b226231b9,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -6923900727490736670, guid: 940198a854b9ca84782b56bebd6f6556,
+        type: 3}
     - target: {fileID: 6863608654632590547, guid: 5ccd4300bda32d34b8c09c0b226231b9,
         type: 3}
       propertyPath: m_Name
@@ -12729,17 +12746,17 @@ PrefabInstance:
     - target: {fileID: 4310960942845429258, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4310960943632836941, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4310960943779383038, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
@@ -12749,22 +12766,22 @@ PrefabInstance:
     - target: {fileID: 4310960944456643101, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4310960944456643101, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5674227694339779696, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5674227694339779696, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7329082199217258709, guid: 2b2a748fa09a58a44b127a5ebdbb78f1,
         type: 3}
@@ -16445,6 +16462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: itemRequired
       value: PurpleKeyCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 357721506835112846, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
+        type: 3}
+      propertyPath: isQuestTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 357721506835112847, guid: d30624bd3ed55d94a8c54fc9bdb8f385,
         type: 3}
