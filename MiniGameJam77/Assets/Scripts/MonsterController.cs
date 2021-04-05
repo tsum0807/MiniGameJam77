@@ -22,6 +22,10 @@ public class MonsterController : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D _collider;
+    private Animator _animator;
+
+    public int facingDir;
+    public bool isMoving;
 
     enum STATE{
         Walking,
@@ -32,6 +36,7 @@ public class MonsterController : MonoBehaviour
     void Awake(){
         spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<CapsuleCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Start(){
@@ -116,6 +121,7 @@ public class MonsterController : MonoBehaviour
             gameObject.layer = LayerMask.NameToLayer("Monster");
             // Give back fear
             gameObject.GetComponentInChildren<FearCircle>().canFear = true;
+            _animator.enabled = true;
         }
     }
 
@@ -165,6 +171,7 @@ public class MonsterController : MonoBehaviour
         gameObject.GetComponentInChildren<FearCircle>().canFear = false;
 
         // Show monster landing location indicator
+        _animator.enabled = false;
         spriteRenderer.sprite = landingIndicator;
 
         // Reduce speed while in mid jump
