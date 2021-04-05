@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc799b168b995ad42aff0947bd99e8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fearAmt: 10
+  fearAmt: 20
   canFear: 1
 --- !u!1 &6125404155473924826
 GameObject:
@@ -83,7 +83,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6125404155473924824
 Transform:
   m_ObjectHideFlags: 0

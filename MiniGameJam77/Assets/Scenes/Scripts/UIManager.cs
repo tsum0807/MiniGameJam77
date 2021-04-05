@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject player;
 
 	public bool isInDialogue = false;
+	public bool win = false;
+
 	private string[] _dialogues;
 	private int curDialogue = 0;
 	private bool isIntro = true;
@@ -54,7 +56,11 @@ public class UIManager : MonoBehaviour
 		if (isInDialogue && Input.GetMouseButtonDown(0))
 		{
 			UpdateDialogue();
-		}
+		}else if(win && Input.GetMouseButtonDown(0))
+        {
+			Win();
+        }
+
 	}
 
 	private void UpdateDialogue()
@@ -100,6 +106,10 @@ public class UIManager : MonoBehaviour
 				dialogueBox.SetActive(false);
 				noteObj.SetActive(false);
 			}
+            if (win)
+            {
+				Win();
+            }
 		}
 		// Next dialogue
 		curDialogue++;
