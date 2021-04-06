@@ -51202,7 +51202,7 @@ MonoBehaviour:
   playerHurt: {fileID: 8300000, guid: 5e032c6c12508474ba70eebea9a45223, type: 3}
   powerUp: {fileID: 8300000, guid: fce8d3cddcd20c74eaa84ff38b5b02b1, type: 3}
   run: {fileID: 8300000, guid: 074dfaf903334a946827318f14e26b49, type: 3}
-  scream: {fileID: 8300000, guid: 57fb6eb230f8c6e499e4aad00d8b4c56, type: 3}
+  scream: {fileID: 8300000, guid: 621c6aeab054f2e43a4878eda3c93e2d, type: 3}
   walk: {fileID: 8300000, guid: e82fbd16c0789044db40bd13d5a244e9, type: 3}
 --- !u!82 &747230329
 AudioSource:
@@ -51290,7 +51290,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

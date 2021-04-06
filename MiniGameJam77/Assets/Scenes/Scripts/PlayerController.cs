@@ -104,8 +104,8 @@ public class PlayerController : MonoBehaviour
         // Debug
         if(Input.GetButtonDown("Debug Reset")){
             // left alt
-            if(darkness)
-                darkness.SetActive(!darkness.activeInHierarchy);
+            /*if(darkness)
+                darkness.SetActive(!darkness.activeInHierarchy);*/
         }
 
     }
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         // run out of courage
         if(curCourage <= 0)
         {
-            AudioManager.AM.PlayRunSound();
+            /*AudioManager.AM.PlayRunSound();*/
             AudioManager.AM.PlayScreamSound();
             isFeared = true;
             FearRun();

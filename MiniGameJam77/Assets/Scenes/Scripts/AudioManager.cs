@@ -47,8 +47,9 @@ public class AudioManager : MonoBehaviour
             // volume is muted so dont try to play anything
             return;
         }
+
         // Randomize sound volume slightly
-        float roll = Random.Range(-0.15f, 0.15f);
+        float roll = Random.Range(-0.15f, 0f);
         float volToPlayAt = volume + roll <= 0 ? volume : volume + roll;
 
         audioSource.PlayOneShot(clipToPlay, volToPlayAt);
