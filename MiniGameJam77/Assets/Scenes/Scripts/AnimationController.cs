@@ -6,6 +6,7 @@ public class AnimationController : MonoBehaviour
 {
 
     private PlayerController objController;
+    private MonsterController monsterController;
     private Animator animator;
 
     private int prevDir;
@@ -22,6 +23,13 @@ public class AnimationController : MonoBehaviour
         }
         prevDir = objController.facingDir;
         prevIsMoving = objController.isMoving;
+        // if stuff are null
+        if(objController == null)
+        {
+            monsterController = GetComponent<MonsterController>();
+            prevDir = monsterController.facingDir;
+            prevIsMoving = monsterController.isMoving;
+        }
     }
 
     // Update is called once per frame
@@ -31,21 +39,42 @@ public class AnimationController : MonoBehaviour
         {
             PlayNewAnimation();
         }
+        prevDir = GetDir();
+        prevIsMoving = GetIsMoving();
+        //prevDir = objController.facingDir;
+        //prevIsMoving = objController.isMoving;
+    }
 
-        prevDir = objController.facingDir;
-        prevIsMoving = objController.isMoving;
+    private int GetDir()
+    {
+        if(objController == null)
+        {
+            return monsterController.facingDir;
+        }
+        else
+        {
+            return objController.facingDir;
+        }
+    }
+
+    private bool GetIsMoving()
+    {
+        return objController == null ? monsterController.isMoving : objController.isMoving;
     }
 
     private bool IsInNewState()
     {
-        return (prevDir == objController.facingDir && prevIsMoving == objController.isMoving);
+        
+        return (prevDir == GetDir() && prevIsMoving == GetIsMoving());
     }
 
     private void PlayNewAnimation()
     {
-        int curDir = objController.facingDir;
-        bool curIsMoving = objController.isMoving;
-        bool curIsFeared = objController.isFeared;
+        int curDir = GetDir();
+        bool curIsMoving = GetIsMoving();
+        bool curIsFeared = false;
+        if(objController != null)
+            curIsFeared =  objController.isFeared;
 
         if (curIsFeared)
         {

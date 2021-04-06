@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour{
+public class UIManager : MonoBehaviour
+{
 
 	// static reference to self
 	public static UIManager UI;
@@ -18,23 +20,30 @@ public class UIManager : MonoBehaviour{
 	[SerializeField] private GameObject dialogueBox;
 	[SerializeField] private GameObject dialogueText;
 
-	[Header ("Objects")]
+	[Header("Objects")]
 	[SerializeField] private GameObject player;
 
 	public bool isInDialogue = false;
+	public bool win = false;
+
 	private string[] _dialogues;
 	private int curDialogue = 0;
 	private bool isIntro = true;
 
-	void Awake(){
-		if(UI != null){
+	void Awake()
+	{
+		if (UI != null)
+		{
 			Destroy(UI);
-		}else{
+		}
+		else
+		{
 			UI = this;
 		}
 	}
 
-	void Start(){
+	void Start()
+	{
 		healthBar = GameObject.Find("Canvas/HealthBar");
 		courageBar = GameObject.Find("Canvas/CourageBar");
 		batteryBar = GameObject.Find("Canvas/BatteryBar");
@@ -42,15 +51,20 @@ public class UIManager : MonoBehaviour{
 		//dialogueBox = GameObject.Find("Canvas/DialogueBox");
 	}
 
-	void Update(){
-        if (isInDialogue && Input.GetMouseButtonDown(0))
-        {
+	void Update()
+	{
+		if (isInDialogue && Input.GetMouseButtonDown(0))
+		{
 			UpdateDialogue();
+		}else if(win && Input.GetMouseButtonDown(0))
+        {
+			Win();
         }
+
 	}
 
 	private void UpdateDialogue()
-    {
+	{
 		if (curDialogue < _dialogues.Length)
 		{
 			// Check for note indicator, if is play next one as note
@@ -92,18 +106,25 @@ public class UIManager : MonoBehaviour{
 				dialogueBox.SetActive(false);
 				noteObj.SetActive(false);
 			}
+            if (win)
+            {
+				Win();
+            }
 		}
 		// Next dialogue
 		curDialogue++;
 	}
 
-	public void UpdateHealthBar(float newAmt){
+	public void UpdateHealthBar(float newAmt)
+	{
 		healthBar.GetComponent<Slider>().value = newAmt;
 	}
-	public void UpdateCourageBar(float newAmt){
+	public void UpdateCourageBar(float newAmt)
+	{
 		courageBar.GetComponent<Slider>().value = newAmt;
 	}
-	public void UpdateBatteryBar(float newAmt){ 
+	public void UpdateBatteryBar(float newAmt)
+	{
 		batteryBar.GetComponent<Slider>().value = newAmt;
 	}
 	public void InsertInventoryBar(string itemName, Sprite itemSprite)
@@ -115,16 +136,16 @@ public class UIManager : MonoBehaviour{
 		Instantiate(newItem, inventoryBar.transform);
 	}
 	public void RemoveFromInventoryBar(string itemName)
-    {
+	{
 		GameObject toRemove = inventoryBar.transform.Find(itemName).gameObject;
-		if(toRemove != null)
-        {
+		if (toRemove != null)
+		{
 			Destroy(toRemove);
-        }
-    }
+		}
+	}
 	public void PlayDialogue(string[] dialogue)
 	{
-		for(int i=0; i<dialogue.Length; i++)
+		for (int i = 0; i < dialogue.Length; i++)
 		{
 			// turn new lines into actual newlines
 			dialogue[i] = dialogue[i].Replace("\\n", "\n");
@@ -143,11 +164,11 @@ public class UIManager : MonoBehaviour{
 
 	public void Win()
 	{
-
+		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void Lose()
-    {
-
-    }
+	{
+		SceneManager.LoadScene("MainMenu");
+	}
 }

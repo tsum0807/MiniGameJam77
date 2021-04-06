@@ -61,10 +61,12 @@ public class Quests : MonoBehaviour
                 break;
             case 3:
                 questText.text = "Find a fuse.";
+                monster.transform.position = player.transform.position;
                 monsterController.Jump();
                 break;
             case 4:
                 questText.text = "Install the fuse in the power room.";
+                monster.transform.position = player.transform.position;
                 monsterController.Jump();
                 break;
             case 5:
@@ -76,7 +78,7 @@ public class Quests : MonoBehaviour
                 break;
             case 6:
                 // Win
-                UIManager.UI.Win();
+                UIManager.UI.win = true;
                 break;
         }
     }

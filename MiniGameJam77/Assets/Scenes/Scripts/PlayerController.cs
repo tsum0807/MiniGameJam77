@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
     public void MoveToTable()
     {
         Move(0.5f, -0.1f);
-        StartCoroutine(StopAfter(2f));
+        StartCoroutine(StopAfter(3f));
     }
 
     IEnumerator StopAfter(float delayTime)
@@ -251,7 +251,7 @@ public class PlayerController : MonoBehaviour
     {
         // Face forward (up)
         FacePosition(transform.position + new Vector3(0, 1, 0));
-        StartCoroutine(DelayAction(0.3f));
+        StartCoroutine(DelayAction(0.6f));
     }
 
     IEnumerator DelayAction(float delayTime)
