@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject monster;
     [SerializeField] private Sprite landingIndicator;
     [SerializeField] private Sprite monsterSprite;
 
@@ -63,7 +64,7 @@ public class MonsterController : MonoBehaviour
             // Play attack sound
             AudioManager.AM.PlayAttackSound();
             // Jump
-            Jump();
+            //Jump();
         }
         //if(collider.tag == "Untagged" || collider.tag == "Object")
         //{
@@ -153,7 +154,8 @@ public class MonsterController : MonoBehaviour
         AudioManager.AM.PlayEnemyHurtSound();
         if (curHealth <= 0){
             // Die
-            gameObject.SetActive(false);
+            Destroy(monster);
+            //gameObject.SetActive(false);
         }
         Jump();
     }

@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float courageRefillPerSec;
     [SerializeField] private float courageThreshold;
 
+    [SerializeField] private float batteryRefillPerSec;
+
     private float curHealth;
     private float curCourage;
     private float curBattery;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isMoving = false;
     public bool isFeared = false;
+    public bool isDischarged = false;
     public int facingDir = 0;
     // 0 - down
     // 1 - left
@@ -108,6 +111,10 @@ public class PlayerController : MonoBehaviour
                 darkness.SetActive(!darkness.activeInHierarchy);*/
         }
 
+        if (isDischarged)
+        {
+            ChangeBattery(batteryRefillPerSec * Time.deltaTime);
+        }
     }
 
     public void ChangeHealth(float amt){
@@ -145,10 +152,18 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeBattery(float amt){
         curBattery += amt;
-        if(curBattery > maxBattery){
+        if(curBattery > maxBattery)
+        {
             curBattery = maxBattery;
-        }else if(curBattery <= 0){
+        }
+        else if(curBattery <= 0)
+        {
             curBattery = 0;
+        }
+
+        if (curBattery <= 0)
+        {
+            isDischarged = true;
         }
         UIManager.UI.UpdateBatteryBar(curBattery);
     }
