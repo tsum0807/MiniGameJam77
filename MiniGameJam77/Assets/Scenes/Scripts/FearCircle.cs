@@ -6,7 +6,7 @@ public class FearCircle : MonoBehaviour
 {
     [SerializeField] private float fearAmt;
 
-    private bool playerInside;
+    public bool playerInside;
     private PlayerController playerController;
 
     public bool canFear = true;

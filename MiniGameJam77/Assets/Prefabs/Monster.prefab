@@ -60,8 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc799b168b995ad42aff0947bd99e8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fearAmt: 30
-  canFear: 0
+  fearAmt: 25
+  canFear: 1
 --- !u!1 &4673146651447508084
 GameObject:
   m_ObjectHideFlags: 0

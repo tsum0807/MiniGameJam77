@@ -1762,45 +1762,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: FirstSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
     rate: 1
   - name: SecondSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: ThirdSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: FourthSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: FifthSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: SixthSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: SeventhSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: EighthSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
+    rate: 0.03125
   - name: NinethSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+    enemy: {fileID: 8078563790806121099, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
     count: 1
-    rate: 0.05
-  - name: TenthSpawn
-    enemy: {fileID: 4673146651447508086, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
-    count: 1
-    rate: 0.05
+    rate: 0.03125
   spawnPoints:
   - {fileID: 398315173}
   timeBetweenWaves: 1
@@ -1855,9 +1851,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questText: {fileID: 1506905694}
-  monster: {fileID: 4673146651447508084, guid: b0ad3c012da70e9499e3e10577bc1c9c, type: 3}
+  monster: {fileID: 8078563790806121097, guid: a28ff2e05c829ce44a5fab9fba0ef4b5, type: 3}
   player: {fileID: 450503626}
   spawner: {fileID: 471571173}
+  spawnzone: {fileID: 398315172}
   secondSp: {fileID: 953745722}
   thirdSp: {fileID: 953699942}
 --- !u!4 &496776370
@@ -51569,6 +51566,11 @@ PrefabInstance:
       objectReference: {fileID: 1487615269}
     - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
         type: 3}
+      propertyPath: safeZone
+      value: 
+      objectReference: {fileID: 2084646304}
+    - target: {fileID: 2412378024406895711, guid: 2a41463360eb0734cb0063cebb7aa827,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 488780616}
@@ -60757,7 +60759,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1097347642516771207, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
         type: 3}
+      propertyPath: maxHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097347642516771207, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+        type: 3}
+      propertyPath: batteryThreshold
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097347642516771207, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+        type: 3}
+      propertyPath: courageThreshold
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097347642516771207, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+        type: 3}
       propertyPath: batteryRefillPerSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1097347642516771207, guid: 3e368a0f1e88fc64db6c621b5f50de6f,
+        type: 3}
+      propertyPath: courageRefillPerSec
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1097347642516771259, guid: 3e368a0f1e88fc64db6c621b5f50de6f,

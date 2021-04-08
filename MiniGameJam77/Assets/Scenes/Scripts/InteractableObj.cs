@@ -12,7 +12,7 @@ public class InteractableObj : MonoBehaviour{
     [SerializeField] private bool isNote;
     [SerializeField] private bool isQuestTrigger;
     [SerializeField] private bool hasDialogue;
-    [SerializeField] private string[] dialogue;
+    [SerializeField] public string[] dialogue;
     [SerializeField] private string itemRequired;
     [SerializeField] private bool itemGetsUsed;
 

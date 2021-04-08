@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip run;
     [SerializeField] private AudioClip scream;
     [SerializeField] private AudioClip walk;
+    [SerializeField] private AudioClip enemyWalk;
 
     private AudioSource audioSource;
 
@@ -91,5 +92,9 @@ public class AudioManager : MonoBehaviour
     public void PlayWalkSound()
     {
         PlaySound(walk);
+    }
+    public void PlayEnemyWalkSound()
+    {
+        PlaySound(enemyWalk);
     }
 }

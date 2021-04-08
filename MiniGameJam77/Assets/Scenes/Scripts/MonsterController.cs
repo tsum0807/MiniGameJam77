@@ -59,34 +59,43 @@ public class MonsterController : MonoBehaviour
         Collider2D collider = collision.collider;
         if(collider.tag == "Player")
         {
-            // Hit player so playyer takes damage
+            // Hit player so player takes damage
             collider.GetComponent<PlayerController>().ChangeHealth(-1f);
             // Play attack sound
             AudioManager.AM.PlayAttackSound();
             // Jump
             //Jump();
+        }        
+        
+        if(collider.tag == "Untagged" || collider.tag == "Object")
+        {
+            // ignore collision with these if jumping
+            if(state == STATE.Jumping)
+            {
+                Physics2D.IgnoreCollision(collision.collider, _collider);
+            }
         }
-        //if(collider.tag == "Untagged" || collider.tag == "Object")
-        //{
-        //    // ignore collision with these if jumping
-        //    if(state == STATE.Jumping)
-        //    {
-        //        Physics2D.IgnoreCollision(collision.collider, _collider);
-        //    }
-        //}
+        
     }
 
-    private void HandleStates(){
-        if(state == STATE.Walking){
+    private void HandleStates()
+    {
+        if(state == STATE.Walking)
+        {
             MoveTowardsObj(player);
-        }else if(state == STATE.Jumping){
+            AudioManager.AM.PlayEnemyWalkSound();
+        }
+        else if(state == STATE.Jumping)
+        {
             curJumpTime -= Time.deltaTime;
             // follow player position
             //transform.position = player.transform.position - new Vector3(0f, 0.5f, 0f);
             MoveTowardsObj(player);
             ExpandCircle();
             CheckJumpTimer();
-        }else if(state == STATE.Landing){
+        }
+        else if(state == STATE.Landing)
+        {
             curLandingTime -= Time.deltaTime;
             ShrinkCircle();
             CheckLandTimer();
@@ -154,10 +163,10 @@ public class MonsterController : MonoBehaviour
         AudioManager.AM.PlayEnemyHurtSound();
         if (curHealth <= 0){
             // Die
-            Destroy(monster);
             //gameObject.SetActive(false);
+            Destroy(monster);
         }
-        Jump();
+        Invoke("Jump", 2);
     }
 
     public void Jump()

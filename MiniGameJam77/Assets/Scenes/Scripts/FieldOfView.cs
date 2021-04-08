@@ -26,7 +26,7 @@ public class FieldOfView : MonoBehaviour
     private float _fov;
     private float _viewDistance;
     private float startingAngle = 0f;
-    private bool isFocused = false; // 0 - normal, 1 - focused
+    public bool isFocused = false; // 0 - normal, 1 - focused
     private LayerMask curIgnoreLayers;
 
     private MeshFilter _meshFilter;
@@ -45,7 +45,8 @@ public class FieldOfView : MonoBehaviour
         UpdateMesh();
 
         // Use Battery
-        if(isFocused){
+        if(isFocused)
+        {
             // How much to use per second
             playerController.ChangeBattery(Time.deltaTime * -batteryUsagePerSec);
             if(playerController.GetCurBattery() <= 0){
@@ -78,15 +79,20 @@ public class FieldOfView : MonoBehaviour
             RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, GetVectorFromAngle(curAngle), _viewDistance, ~curIgnoreLayers);
 
 
-            while (raycastHit2D.collider != null){
-                if(raycastHit2D.collider.tag == "Transparent"){
+            while (raycastHit2D.collider != null)
+            {
+                if(raycastHit2D.collider.tag == "Transparent")
+                {
                     // Has hit box but should be see through
                     curIgnoreLayers += BehindMaskLayer;
                     // cast new ray
                     raycastHit2D = Physics2D.Raycast(raycastHit2D.point, GetVectorFromAngle(curAngle), _viewDistance - raycastHit2D.distance, ~curIgnoreLayers);
-                }else if(raycastHit2D.collider.tag == "Monster"){
+                }
+                else if(raycastHit2D.collider.tag == "Monster")
+                {
                     // Monster
-                    if(isFocused){
+                    if(isFocused)
+                    {
                         // Do dmg to monster if in focus mode
                         raycastHit2D.collider.GetComponent<MonsterController>().TakeDamage();
                     }
@@ -96,7 +102,8 @@ public class FieldOfView : MonoBehaviour
                                                      GetVectorFromAngle(curAngle),
                                                      _viewDistance - raycastHit2D.distance,
                                                      ~curIgnoreLayers);
-                }else if(raycastHit2D.collider.tag == "Object")
+                }
+                else if(raycastHit2D.collider.tag == "Object")
                 {
                     // Objects are not see through but can be seen
                     raycastHit2D = Physics2D.Raycast(raycastHit2D.point,

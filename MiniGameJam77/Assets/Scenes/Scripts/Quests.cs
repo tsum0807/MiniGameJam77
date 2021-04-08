@@ -16,6 +16,7 @@ public class Quests : MonoBehaviour
     [SerializeField] private GameObject monster;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject spawner;
+    [SerializeField] private GameObject spawnzone;
     [SerializeField] private GameObject secondSp;
     [SerializeField] private GameObject thirdSp;
 
@@ -62,24 +63,26 @@ public class Quests : MonoBehaviour
 
             case 2:
                 questText.text = "Find the power room.";
+                spawner.SetActive(false);
                 break;
             case 3:
+                spawner.SetActive(true);
                 questText.text = "Find a fuse.";
-                spawner.transform.position = secondSp.transform.position;
+                spawnzone.transform.position = secondSp.transform.position;
                 monsterController.Jump();
                 break;
             case 4:
                 questText.text = "Install the fuse in the power room.";
-                spawner.transform.position = thirdSp.transform.position;
+                spawnzone.transform.position = thirdSp.transform.position;
                 monsterController.Jump();
                 break;
             case 5:
                 // Fused installed so turn on the lights
+                Destroy(spawner);
+                Destroy(monster);
                 playerController.LightsOn();
                 // Give player "PowerOn"
                 player.GetComponent<Inventory>().AddToInventory("PowerOn");
-                Destroy(spawner);
-                Destroy(monster);
                 break;
             case 6:
                 // Win

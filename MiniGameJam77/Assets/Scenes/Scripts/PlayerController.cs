@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float courageThreshold;
 
     [SerializeField] private float batteryRefillPerSec;
+    [SerializeField] private float batteryThreshold;
 
     private float curHealth;
     private float curCourage;
@@ -36,7 +37,8 @@ public class PlayerController : MonoBehaviour
     // 3 - right
 
 
-    void Start(){
+    void Start()
+    {
         rigidBody = GetComponent<Rigidbody2D>();
         inventory = GetComponent<Inventory>();
         fov = GetComponentInChildren<FieldOfView>();
@@ -57,11 +59,13 @@ public class PlayerController : MonoBehaviour
         //AudioManager.AM.PlayAmbience();
     }
 
-    void Update(){
+    void Update()
+    {
         HandleInput();
     }
 
-    private void HandleInput(){
+    private void HandleInput()
+    {
         // Cant do anything while in dialogue
         if (UIManager.UI.isInDialogue)
         {
@@ -86,17 +90,21 @@ public class PlayerController : MonoBehaviour
         CalculateDir(mousePos);
 
         // Switch flashlight mode
-        if(Input.GetButtonDown("Switch Mode")){
+        if(Input.GetButtonDown("Switch Mode"))
+        {
             fov.SwitchMode();
+        }
+        if (GameObject.Find("FearRange").GetComponent<FearCircle>().playerInside == false)
+        {
+            // Courage fill back up while outside fear zone
+            ChangeCourage(courageRefillPerSec * Time.deltaTime);
         }
 
         if (isFeared)
         {
             //Move in fear
             Move(fearRunningDir.x, fearRunningDir.y);
-
-            // Courage fill back up while feared
-            ChangeCourage(courageRefillPerSec * Time.deltaTime);
+           
             // Stop being feared 
             if(curCourage >= courageThreshold)
             {
@@ -105,24 +113,41 @@ public class PlayerController : MonoBehaviour
         }
 
         // Debug
-        if(Input.GetButtonDown("Debug Reset")){
+        if(Input.GetButtonDown("Debug Reset"))
+        {
             // left alt
             /*if(darkness)
                 darkness.SetActive(!darkness.activeInHierarchy);*/
         }
 
+
+        if (GameObject.Find("FieldOfView").GetComponent<FieldOfView>().isFocused == false)
+            {
+                ChangeBattery(batteryRefillPerSec * Time.deltaTime);
+            }
+        else
+        {
+            return;
+        }
         if (isDischarged)
         {
-            ChangeBattery(batteryRefillPerSec * Time.deltaTime);
+            if (curBattery >= batteryThreshold)
+            {
+                isDischarged = false;
+            }
         }
     }
 
-    public void ChangeHealth(float amt){
+    public void ChangeHealth(float amt)
+    {
         curHealth += amt;
         AudioManager.AM.PlayPlayerHurtSound();
-        if (curHealth > maxHealth){
+        if (curHealth > maxHealth)
+        {
             curHealth = maxHealth;
-        }else if(curHealth <= 0){
+        }
+        else if(curHealth <= 0)
+        {
             curHealth = 0;
             // Die
             AudioManager.AM.PlayScreamSound();
@@ -131,11 +156,15 @@ public class PlayerController : MonoBehaviour
         UIManager.UI.UpdateHealthBar(curHealth);
     }
 
-    public void ChangeCourage(float amt){
+    public void ChangeCourage(float amt)
+    {
         curCourage += amt;
-        if(curCourage > maxCourage){
+        if(curCourage > maxCourage)
+        {
             curCourage = maxCourage;
-        }else if(curCourage <= 0){
+        }
+        else if(curCourage <= 0)
+        {
             curCourage = 0;
         }
         UIManager.UI.UpdateCourageBar(curCourage);
@@ -265,15 +294,15 @@ public class PlayerController : MonoBehaviour
     public void PlayMonsterCutscene()
     {
         // Face forward (up)
-        FacePosition(transform.position + new Vector3(0, 1, 0));
-        StartCoroutine(DelayAction(0.6f));
+        FacePosition(transform.position + new Vector3(0, 2, 0));
+        //StartCoroutine(DelayAction(0.6f));
     }
 
-    IEnumerator DelayAction(float delayTime)
+   /* IEnumerator DelayAction(float delayTime)
     {
         yield return new WaitForSeconds(1f);
         Move(0f, -1f);
         yield return new WaitForSeconds(delayTime);
         Move(0f, 0f);
-    }
+    }*/
 }

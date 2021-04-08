@@ -19,8 +19,9 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject noteText;
 	[SerializeField] private GameObject dialogueBox;
 	[SerializeField] private GameObject dialogueText;
+    [SerializeField] private GameObject safeZone;
 
-	[Header("Objects")]
+    [Header("Objects")]
 	[SerializeField] private GameObject player;
 
 	public bool isInDialogue = false;
@@ -84,7 +85,14 @@ public class UIManager : MonoBehaviour
 				dialogueBox.SetActive(true);
 				dialogueText.GetComponent<TMPro.TextMeshProUGUI>().text = _dialogues[curDialogue];
 			}
-			else
+            else if (_dialogues[curDialogue] == "You can drive the monster off with the hi-beam of your flashlight. Press F, but remember that the hi-beam uses up your battery!")
+            {
+                if(curDialogue + 1 > _dialogues.Length - 1)
+                {
+                    safeZone.SetActive(false);
+                }
+            }
+            else
 			{
 				noteObj.SetActive(false);
 				dialogueBox.SetActive(true);
